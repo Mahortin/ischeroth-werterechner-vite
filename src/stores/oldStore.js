@@ -21,14 +21,14 @@ export const oldStore = reactive({
       return
     }
 
-    window.alert(
-      'Attribute is: ' +
-        attribute +
-        'with values: ' +
-        attribute.value +
-        ' and key: ' +
-        attribute.key,
-    )
+    // window.alert(
+    //   'Attribute is: ' +
+    //     attribute +
+    //     'with values: ' +
+    //     attribute.value +
+    //     ' and key: ' +
+    //     attribute.key,
+    // )
     this.attributes.find((x) => x.key == attribute.key)
   },
 })

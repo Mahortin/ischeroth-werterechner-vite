@@ -14,8 +14,8 @@ import AttributePage from './components/AttributePage.vue'
   </header>
 
   <main>
-    <TheWelcome />
     <AttributePage />
+    <TheWelcome />
   </main>
 </template>
 

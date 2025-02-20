@@ -1,8 +1,7 @@
 <script setup>
 // import { ref, reactive, computed } from 'vue'
 // import { ref, reactive } from "vue";
-import { defineProps, defineEmits } from 'vue'
-import { store } from '@/store/store'
+import { oldStore } from '../stores/oldStore'
 
 defineProps({
   attributeKey: String,
@@ -20,7 +19,7 @@ function attributeChanged() {
 <template>
   <button @click="attributeChanged()">Changed</button>
 
-  <button @click="store.increment">From B: {{ store.count }}</button>
+  <button @click="oldStore.increment">From B: {{ oldStore.count }}</button>
 
   <div class="attribute-info">
     <span class="attribute-key">{{ attributeKey }}</span>
@@ -32,11 +31,11 @@ function attributeChanged() {
       placeholder="8"
       min="8"
       max="16"
-      @change="store.updateAttribute({ key: attributeKey, value: currentValue })"
+      @change="oldStore.updateAttribute({ key: attributeKey, value: currentValue })"
     />
   </div>
 </template>
 
 <style scoped>
-@import '../assets/shared-styles.scss';
+/* @import '../assets/shared-styles.scss'; */
 </style>

@@ -2,7 +2,7 @@
 // import { ref, reactive, computed } from 'vue'
 import { ref, reactive } from 'vue'
 import SingleAttribute from './SingleAttribute.vue'
-import { store } from '@/store/store'
+import { oldStore } from '../stores/oldStore'
 // const count = ref(0);
 const user = reactive({
   email: '',
@@ -38,19 +38,19 @@ function warning() {
   <div class="column">
     <h1>Eigenschaften</h1>
     <SingleAttribute
-      v-for="attribute in store.attributes"
+      v-for="attribute in oldStore.attributes"
       :key="attribute.key"
       :attributeKey="attribute.key"
       :attributeName="attribute.name"
       :attributeValue="attribute.basevalue"
-      @attribute-changed="store.updateAttribute(attribute)"
+      @attribute-changed="oldStore.updateAttribute(attribute)"
     >
     </SingleAttribute>
 
     <h1>Übungsbereich</h1>
     <button @click="warning">WARNING!</button>
-    <button @click="store.updateAttribute(null)">update Attribute</button>
-    <button @click="store.increment">From A: {{ store.count }}</button>
+    <button @click="oldStore.updateAttribute(null)">update Attribute</button>
+    <button @click="oldStore.increment">From A: {{ oldStore.count }}</button>
 
     <!-- count for reactive example -->
     <button @click="login">Login</button>
@@ -71,5 +71,5 @@ function warning() {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
-@import '../assets/shared-styles.scss';
+/* @import '../assets/shared-styles.scss'; */
 </style>

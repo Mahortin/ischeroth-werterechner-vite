@@ -1,8 +1,7 @@
 <script setup>
 // import { ref, reactive, computed } from 'vue'
 // import { ref, reactive } from "vue";
-import { defineProps } from 'vue'
-// import { store } from "@/store/store";
+// import { oldStore } from '../stores/oldStore'
 import SingleTalent from './SingleTalent.vue'
 
 defineProps({
@@ -33,5 +32,5 @@ function listTalente() {
 </template>
 
 <style scoped>
-@import '../assets/shared-styles.scss';
+/* @import '../assets/shared-styles.scss'; */
 </style>

@@ -8,11 +8,11 @@ function doNothing() {
   window.confirm(store)
 }
 
-function incrementAttributes() {
-  store.attributes.forEach((attribute) => {
-    attribute.value++
-  })
-}
+// function incrementAttributes() {
+//   store.attributes.forEach((attribute) => {
+//     attribute.value++
+//   })
+// }
 </script>
 
 <template>
@@ -43,9 +43,9 @@ function incrementAttributes() {
         @attribute-changed="doNothing"
       ></AttributeComponent>
     </div>
-    <button @click="doNothing">Nothing</button>
+    <!-- <button @click="doNothing">Nothing</button>
     <button @click="incrementAttributes">+ from Component</button>
-    <button @click="store.increment">+ from Store</button>
+    <button @click="store.increment">+ from Store</button> -->
   </div>
 </template>
 

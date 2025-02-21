@@ -1,4 +1,5 @@
 <script setup>
+import SingleAttribute from './SingleAttribute.vue'
 import { characterStore } from '@/stores/characterStore'
 
 const store = characterStore()
@@ -21,18 +22,29 @@ function incrementAttributes() {
     <!-- <label>{{ store.attributes }}</label> -->
     <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
       <label>{{ attribute.key }}: {{ attribute.value }}</label>
+      <input
+        type="number"
+        placeholder="8"
+        value="{{attribute.value
+        }}"
+        v-model="currentValue"
+        min="8"
+        max="16"
+        @change="store.setAttribute(attribute.key, currentValue)"
+      />
+    </div>
+    <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
+      <SingleAttribute
+        :key="attribute.key"
+        :attributeKey="attribute.key"
+        :attributeName="attribute.name"
+        :attributeValue="attribute.basevalue"
+        @attribute-changed="doNothing"
+      ></SingleAttribute>
     </div>
     <button @click="doNothing">Nothing</button>
     <button @click="incrementAttributes">+ from Component</button>
     <button @click="store.increment">+ from Store</button>
-
-    <!-- <input
-      v-for="attribute in store.attributes"
-      type="number"
-      placeholder="store.salary"
-      v-model="currentValue"
-      @change="store.updateSalary(currentValue)"
-    /> -->
   </div>
 </template>
 

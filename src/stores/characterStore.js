@@ -22,6 +22,26 @@ export const characterStore = defineStore('characterStore', {
       })
       this.calcSkills()
     },
+    setAttribute(key, newValue) {
+      if (key === null) window.alert('attribute is null!')
+      this.attributes.forEach((attribute) => {
+        if (attribute.key === key) {
+          attribute.value = newValue
+          window.alert(attribute.key + ':' + attribute.value + newValue)
+        }
+      })
+      this.calcSkills()
+    },
+    setAttributeViaObject(keyPair) {
+      if (keyPair === null) window.alert('keyPair is null!')
+      this.attributes.forEach((attribute) => {
+        if (attribute.key === keyPair.key) {
+          attribute.value = keyPair.value
+          window.alert(attribute.key + ':' + attribute.value + keyPair)
+        }
+      })
+      this.calcSkills()
+    },
     calcSkills() {
       this.skills.forEach((skill) => {
         // window.confirm('reached it -> ' + skill.attributes[0])

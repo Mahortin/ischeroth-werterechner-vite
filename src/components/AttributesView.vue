@@ -39,6 +39,7 @@ function incrementAttributes() {
         :attributeKey="attribute.key"
         :attributeName="attribute.name"
         :attributeValue="attribute.basevalue"
+        :increased="attribute.increased"
         @attribute-changed="doNothing"
       ></AttributeComponent>
     </div>

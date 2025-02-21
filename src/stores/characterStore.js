@@ -3,12 +3,18 @@ import { defineStore } from 'pinia'
 export const characterStore = defineStore('characterStore', {
   state: () => ({
     attributes: [
-      { key: 'kl', value: 8 },
-      { key: 'in', value: 8 },
+      { key: 'MU', name: 'Mut', value: 8, increased: 0 },
+      { key: 'KL', name: 'Klugheit', value: 8, increased: 0 },
+      { key: 'IN', name: 'Intuition', value: 8, increased: 0 },
+      { key: 'CH', name: 'Charisma', value: 8, increased: 0 },
+      { key: 'FF', name: 'Fingerfertigkeit', value: 8, increased: 0 },
+      { key: 'GE', name: 'Gewandheit', value: 8, increased: 0 },
+      { key: 'ST', name: 'Stärke', value: 8, increased: 0 },
+      { key: 'KO', name: 'Konstitution', value: 8, increased: 0 },
     ],
     skills: [
-      { key: 'himmelskunde', value: 8, attributes: ['kl', 'in', 'in'] },
-      { key: 'orientierung', value: 8, attributes: ['kl', 'in', 'in'] },
+      { key: 'himmelskunde', value: 8, attributes: ['KL', 'IN', 'IN'] },
+      { key: 'orientierung', value: 8, attributes: ['KL', 'IN', 'IN'] },
     ],
   }),
   getters: {
@@ -31,6 +37,17 @@ export const characterStore = defineStore('characterStore', {
       this.attributes.forEach((attribute) => {
         if (attribute.key === key) {
           attribute.value = newValue
+          // window.alert(attribute.key + ':' + attribute.value + newValue)
+        }
+      })
+      this.calcSkills()
+    },
+    increaseAttribute(key, newValue) {
+      if (key === null) window.alert('attribute is null!')
+
+      this.attributes.forEach((attribute) => {
+        if (attribute.key === key) {
+          attribute.increased = newValue
           // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })

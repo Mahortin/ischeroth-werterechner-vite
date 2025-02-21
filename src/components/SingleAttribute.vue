@@ -4,11 +4,11 @@
 import { characterStore } from '@/stores/characterStore'
 
 const store = characterStore()
-
 defineProps({
   attributeKey: String,
   attributeName: String,
   attributeValue: Number,
+  increased: Number,
 })
 
 function updateAttribute(attributeKey, currentValue) {
@@ -23,6 +23,7 @@ function updateAttribute(attributeKey, currentValue) {
     <span class="attribute-key">{{ attributeKey }}</span>
     <span class="attribute-name">{{ attributeName }}</span>
     <input
+      :class="increased > 0 ? 'highlight' : ''"
       type="number"
       value="{{ attributeValue }}"
       v-model.number="currentValue"
@@ -31,7 +32,27 @@ function updateAttribute(attributeKey, currentValue) {
       max="16"
       @change="updateAttribute(attributeKey, currentValue)"
     />
-    <!-- @change="store.setAttribute(attributeKey, currentValue)" -->
+    <span>{{ increased }}</span>
+    <div>
+      <button
+        :class="increased === 1 ? 'highlight' : ''"
+        @click="store.increaseAttribute(attributeKey, 1)"
+      >
+        +
+      </button>
+      <button
+        :class="increased === 2 ? 'highlight' : ''"
+        @click="store.increaseAttribute(attributeKey, 2)"
+      >
+        ++
+      </button>
+      <!-- <button
+        :class="increased === 2 ? 'highlight' : ''"
+        @click="store.increaseAttribute(attributeKey, 2)"
+      >
+        ++
+      </button> -->
+    </div>
   </div>
 </template>
 
@@ -63,5 +84,42 @@ input:focus {
 
 input::placeholder {
   color: #7f8c8d; /* Slightly lighter placeholder text */
+}
+
+input.highlight {
+  flex-shrink: 0;
+  color: #3acf4b;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px; /* Softer edges with rounded corners */
+  background-color: #f8f2e8; /* Light gray background */
+  color: #333; /* Darker font color */
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Smooth transition effects */
+}
+/* Active state: Change only the background color */
+button.highlight {
+  background-color: #3acf4b; /* Modern blue background for active state */
+  color: #713604; /* Change the font color to white when active */
+}
+
+/* Hover state: Slight background change and shadow lift */
+button:hover {
+  background-color: #f5ebda; /* Light gray on hover for normal buttons */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Increase shadow for hover effect */
+}
+
+/* Hover state for active button */
+button.highlight:hover {
+  background-color: #51cf5f; /* Slightly darker blue on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Increase shadow for hover effect */
 }
 </style>

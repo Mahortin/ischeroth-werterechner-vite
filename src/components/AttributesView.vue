@@ -20,7 +20,7 @@ function incrementAttributes() {
     <h2>Attribute</h2>
 
     <!-- <label>{{ store.attributes }}</label> -->
-    <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
+    <!-- <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
       <label>{{ attribute.key }}: {{ attribute.value }}</label>
       <input
         type="number"
@@ -32,7 +32,7 @@ function incrementAttributes() {
         max="16"
         @change="store.setAttribute(attribute.key, currentValue)"
       />
-    </div>
+    </div> -->
     <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
       <AttributeComponent
         :key="attribute.key"

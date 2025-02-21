@@ -1,10 +1,16 @@
 <script setup>
-import characterStore from '@/stores/characterStore'
+import { characterStore } from '@/stores/characterStore'
 
 const store = characterStore()
 
-function doSth() {
-  window.confirm('Do something - this will be implemented')
+function doNothing() {
+  window.confirm(store)
+}
+
+function incrementSkills() {
+  store.skills.forEach((skill) => {
+    skill.value++
+  })
 }
 </script>
 
@@ -12,16 +18,12 @@ function doSth() {
   <div class="column">
     <h2>Talente</h2>
 
-    <button @click="doSth">Click me!</button>
-    <button @click="store.increment">{{ store.count }}</button>
-    <label> {{ store.name }} the {{ store.nickname }} [yearly income: {{ store.salary }}]</label>
-
-    <input
-      type="number"
-      placeholder="store.salary"
-      v-model="currentValue"
-      @change="store.updateSalary(currentValue)"
-    />
+    <!-- <label>{{ store.attributes }}</label> -->
+    <div v-for="skill in store.skills" :key="skill.key" :value="skill.value">
+      <label>{{ skill.key }}: {{ skill.value }}</label>
+    </div>
+    <button @click="doNothing">Nothing</button>
+    <button @click="incrementSkills">+ from component</button>
   </div>
 </template>
 

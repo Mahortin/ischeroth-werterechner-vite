@@ -16,22 +16,19 @@ export const characterStore = defineStore('characterStore', {
     // salaryInEuros: (state) => state.salary + ' €',
   },
   actions: {
-    // increment() {
-    //   this.count++
-    // },
-    // getRich() {
-    //   this.salary = 1000000000
-    //   this.count++
-    //   this.nickname = 'rich bitch!'
-    // },
-    // loseItAll() {
-    //   this.salary = 0
-    //   this.count++
-    //   this.nickname = 'beggar -_-'
-    // },
-    // updateSalary(newSalary) {
-    //   this.salary = newSalary
-    //   this.nickname = this.salary > 100 ? 'wealthy weasel' : 'broke barker'
-    // },
+    increment() {
+      this.attributes.forEach((attribute) => {
+        attribute.value++
+      })
+      this.calcSkills()
+    },
+    calcSkills() {
+      this.skills.forEach((skill) => {
+        this.attributes.find((attribute) => attribute.key === 'kl')
+        var firstAttribute = this.attributes.find((attribute) => attribute.key === 'kl').value
+        var secondAttribute = this.attributes.find((attribute) => attribute.key === 'in').value
+        skill.value = (firstAttribute * 2 + secondAttribute) / 3
+      })
+    },
   },
 })

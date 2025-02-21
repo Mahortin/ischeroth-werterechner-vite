@@ -23,7 +23,8 @@ function incrementAttributes() {
       <label>{{ attribute.key }}: {{ attribute.value }}</label>
     </div>
     <button @click="doNothing">Nothing</button>
-    <button @click="incrementAttributes">+</button>
+    <button @click="incrementAttributes">+ from Component</button>
+    <button @click="store.increment">+ from Store</button>
 
     <!-- <input
       v-for="attribute in store.attributes"

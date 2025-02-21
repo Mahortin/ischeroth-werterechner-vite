@@ -10,7 +10,7 @@ function doSth() {
 
 <template>
   <div class="column">
-    <h2>SimpleComponent</h2>
+    <h2>SimpleComponentA</h2>
 
     <button @click="doSth">Click me!</button>
     <button @click="store.increment">{{ store.count }}</button>

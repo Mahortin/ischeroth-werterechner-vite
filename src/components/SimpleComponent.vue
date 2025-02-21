@@ -1,4 +1,8 @@
 <script setup>
+import { simpleStore } from '@/stores/simpleStore'
+
+const store = simpleStore()
+
 function doSth() {
   window.confirm('Do something - this will be implemented')
 }
@@ -8,10 +12,8 @@ function doSth() {
   <div class="column">
     <h2>SimpleComponent</h2>
 
-    <button @click="doSth">
-      Click me!
-      <!-- mybutton -->
-    </button>
+    <button @click="doSth">Click me!</button>
+    <button @click="store.increment">{{ store.count }}</button>
   </div>
 </template>
 

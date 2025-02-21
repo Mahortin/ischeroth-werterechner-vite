@@ -1,5 +1,5 @@
 <script setup>
-import SingleAttribute from './SingleAttribute.vue'
+import AttributeComponent from './SingleAttribute.vue'
 import { characterStore } from '@/stores/characterStore'
 
 const store = characterStore()
@@ -34,13 +34,13 @@ function incrementAttributes() {
       />
     </div>
     <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
-      <SingleAttribute
+      <AttributeComponent
         :key="attribute.key"
         :attributeKey="attribute.key"
         :attributeName="attribute.name"
         :attributeValue="attribute.basevalue"
         @attribute-changed="doNothing"
-      ></SingleAttribute>
+      ></AttributeComponent>
     </div>
     <button @click="doNothing">Nothing</button>
     <button @click="incrementAttributes">+ from Component</button>

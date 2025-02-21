@@ -2,10 +2,6 @@
 import { simpleStore } from '@/stores/simpleStore'
 
 const store = simpleStore()
-
-function doSth() {
-  window.confirm('Do something - this will be implemented')
-}
 </script>
 
 <template>

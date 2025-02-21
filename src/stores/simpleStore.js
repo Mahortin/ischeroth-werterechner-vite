@@ -24,5 +24,9 @@ export const simpleStore = defineStore('simple', {
       this.count++
       this.nickname = 'beggar -_-'
     },
+    updateSalary(newSalary) {
+      this.salary = newSalary
+      this.nickname = this.salary > 100 ? 'wealthy weasel' : 'broke barker'
+    },
   },
 })

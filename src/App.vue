@@ -3,7 +3,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import AttributePage from './components/AttributePage.vue'
 import SimpleComponentA from './components/SimpleComponentA.vue'
-import SimpleComponentB from './components/SimpleComponentA.vue'
+import SimpleComponentB from './components/SimpleComponentB.vue'
 </script>
 
 <template>

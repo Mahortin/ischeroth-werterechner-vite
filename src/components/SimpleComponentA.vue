@@ -14,6 +14,7 @@ function doSth() {
 
     <button @click="doSth">Click me!</button>
     <button @click="store.increment">{{ store.count }}</button>
+    <label> {{ store.name }} the {{ store.nickname }} [yearly income: {{ store.salary }}]</label>
   </div>
 </template>
 

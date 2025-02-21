@@ -12,8 +12,12 @@ function doSth() {
   <div class="column">
     <h2>SimpleComponentB</h2>
 
-    <button @click="doSth">Click me!</button>
-    <button @click="store.increment">{{ store.count }}</button>
+    <label>{{ store.count }}</label>
+    <button @click="store.getRich">Get rich!</button>
+    <button @click="store.loseItAll">Lose the bet</button>
+    <label>
+      {{ store.name }} the {{ store.nickname }} [yearly income: {{ store.salaryInEuros }}]</label
+    >
   </div>
 </template>
 

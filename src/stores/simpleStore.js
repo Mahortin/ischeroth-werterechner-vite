@@ -5,13 +5,24 @@ import { defineStore } from 'pinia'
 // and `Store` (e.g. `useUserStore`, `useCartStore`, `useProductStore`)
 // the first argument is a unique id of the store across your application
 export const simpleStore = defineStore('simple', {
-  state: () => ({ count: 0, name: 'Eduardo' }),
+  state: () => ({ count: 0, salary: 100, name: 'Eduardo', nickname: 'poor guy' }),
   getters: {
     doubleCount: (state) => state.count * 2,
+    salaryInEuros: (state) => state.salary + ' €',
   },
   actions: {
     increment() {
       this.count++
+    },
+    getRich() {
+      this.salary = 1000000000
+      this.count++
+      this.nickname = 'rich bitch!'
+    },
+    loseItAll() {
+      this.salary = 0
+      this.count++
+      this.nickname = 'beggar -_-'
     },
   },
 })

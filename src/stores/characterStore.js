@@ -13,11 +13,38 @@ export const characterStore = defineStore('characterStore', {
       { key: 'KO', name: 'Konstitution', value: 8, increased: 0 },
     ],
     skills: [
-      { key: 'himmelskunde', value: 8, attributes: ['KL', 'IN', 'IN'], increased: false },
-      { key: 'orientierung', value: 8, attributes: ['KL', 'IN', 'IN'], increased: false },
-      { key: 'bootSeefahrt', value: 8, attributes: ['IN', 'GE', 'ST'], increased: false },
+      {
+        key: 'himmelskunde',
+        value: 8,
+        attributes: ['KL', 'IN', 'IN'],
+        increased: false,
+        group: 'natur',
+      },
+      {
+        key: 'orientierung',
+        value: 8,
+        attributes: ['KL', 'IN', 'IN'],
+        increased: false,
+        group: 'natur',
+      },
+      {
+        key: 'bootSeefahrt',
+        value: 8,
+        attributes: ['IN', 'GE', 'ST'],
+        increased: false,
+        group: 'handwerk',
+      },
+    ],
+    skillgroups: [
+      { key: 'kampf', name: 'Kampf' },
+      { key: 'körper', name: 'Körper' },
+      { key: 'gesellschaft', name: 'Gesellschaft' },
+      { key: 'natur', name: 'Natur' },
+      { key: 'wissen', name: 'Wissen' },
+      { key: 'handwerk', name: 'Handwerk' },
     ],
   }),
+
   getters: {
     getAttributeValue: (state, key) => state.attributes.find((attribute) => attribute.key === key),
     getBaseAttributeValue: (state, key) =>

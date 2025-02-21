@@ -17,8 +17,10 @@ const store = characterStore()
 <template>
   <div class="column">
     <h2>Talente</h2>
-
     <!-- <label>{{ store.attributes }}</label> -->
+    <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
+      <button>{{ group.name }}</button>
+    </div>
     <div
       :class="[skill.increased ? 'skill-info-highlighted' : 'skill-info']"
       v-for="skill in store.skills"
@@ -27,6 +29,7 @@ const store = characterStore()
     >
       <label>{{ skill.key }}: {{ skill.value }}</label>
       <label>{{ skill.increased }}</label>
+      <label>{{ skill.group }}</label>
     </div>
     <!-- <button @click="doNothing">Nothing</button>
     <button @click="incrementSkills">+ from component</button> -->
@@ -34,6 +37,11 @@ const store = characterStore()
 </template>
 
 <style scoped>
+.filter-buttons {
+  display: inline-block;
+  flex-direction: row;
+}
+
 .skill-info {
   display: flex;
   justify-content: space-between;

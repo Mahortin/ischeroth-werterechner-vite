@@ -13,12 +13,15 @@ export const characterStore = defineStore('characterStore', {
       { key: 'KO', name: 'Konstitution', value: 8, increased: 0 },
     ],
     skills: [
-      { key: 'himmelskunde', value: 8, attributes: ['KL', 'IN', 'IN'] },
-      { key: 'orientierung', value: 8, attributes: ['KL', 'IN', 'IN'] },
+      { key: 'himmelskunde', value: 8, attributes: ['KL', 'IN', 'IN'], increased: false },
+      { key: 'orientierung', value: 8, attributes: ['KL', 'IN', 'IN'], increased: false },
+      { key: 'bootSeefahrt', value: 8, attributes: ['IN', 'GE', 'ST'], increased: false },
     ],
   }),
   getters: {
     getAttributeValue: (state, key) => state.attributes.find((attribute) => attribute.key === key),
+    getBaseAttributeValue: (state, key) =>
+      state.attributes.find((attribute) => attribute.key === key),
     // doubleCount: (state) => state.count * 2,
     // salaryInEuros: (state) => state.salary + ' €',
   },
@@ -51,47 +54,54 @@ export const characterStore = defineStore('characterStore', {
           // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })
-      this.calcSkills()
+      this.calcAllSkills()
     },
-    calcSkills() {
+    calcAllSkills() {
       this.skills.forEach((skill) => {
-        // window.confirm('reached it -> ' + skill.attributes[0])
-        var firstAttribute = this.attributes.find(
-          (attribute) => attribute.key === skill.attributes[0],
-        ).value
-        // window.confirm('1st attribute -> ' + firstAttribute)
-        var secondAttribute = this.attributes.find(
-          (attribute) => attribute.key === skill.attributes[1],
-        ).value
-        // window.confirm('2nd attribute -> ' + secondAttribute)
-        var thirdAttribute = this.attributes.find(
-          (attribute) => attribute.key === skill.attributes[2],
-        ).value
-        // window.confirm('3rd attribute -> ' + thirdAttribute)
-        skill.value = Math.round((firstAttribute + secondAttribute + thirdAttribute) / 3)
-        // window.confirm('skill.value -> ' + skill.value)
+        this.calcSkill(skill)
       })
     },
     calcUpdatedSkills(key) {
       this.skills.forEach((skill) => {
         if (!skill.attributes.includes(key)) return
-
-        // window.confirm('reached it -> ' + skill.attributes[0])
-        var firstAttribute = this.attributes.find(
-          (attribute) => attribute.key === skill.attributes[0],
-        ).value
-        // window.confirm('1st attribute -> ' + firstAttribute)
-        var secondAttribute = this.attributes.find(
-          (attribute) => attribute.key === skill.attributes[1],
-        ).value
-        // window.confirm('2nd attribute -> ' + secondAttribute)
-        var thirdAttribute = this.attributes.find(
-          (attribute) => attribute.key === skill.attributes[2],
-        ).value
-        // window.confirm('3rd attribute -> ' + thirdAttribute)
-        skill.value = Math.round((firstAttribute + secondAttribute + thirdAttribute) / 3)
-        // window.confirm('skill.value -> ' + skill.value)
+        this.calcSkill(skill)
       })
+    },
+    calcSkill(skill) {
+      var firstAttribute = this.attributes.find(
+        (attribute) => attribute.key === skill.attributes[0],
+      )
+      var secondAttribute = this.attributes.find(
+        (attribute) => attribute.key === skill.attributes[1],
+      )
+      var thirdAttribute = this.attributes.find(
+        (attribute) => attribute.key === skill.attributes[2],
+      )
+
+      if (
+        firstAttribute.increased === 0 &&
+        secondAttribute.increased === 0 &&
+        thirdAttribute.increased === 0
+      ) {
+        skill.value = Math.round(
+          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3,
+        )
+      } else {
+        var baseValue = Math.round(
+          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3,
+        )
+        var value = (skill.value = Math.round(
+          (firstAttribute.value +
+            secondAttribute.value +
+            thirdAttribute.value +
+            firstAttribute.increased +
+            secondAttribute.increased +
+            thirdAttribute.increased) /
+            3,
+        ))
+        skill.value = value
+        skill.increased = value > baseValue ? true : false
+      }
     },
   },
 })

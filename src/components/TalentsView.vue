@@ -21,6 +21,7 @@ const store = characterStore()
     <!-- <label>{{ store.attributes }}</label> -->
     <div v-for="skill in store.skills" :key="skill.key" :value="skill.value">
       <label>{{ skill.key }}: {{ skill.value }}</label>
+      <label>{{ skill.increased }}</label>
     </div>
     <!-- <button @click="doNothing">Nothing</button>
     <button @click="incrementSkills">+ from component</button> -->

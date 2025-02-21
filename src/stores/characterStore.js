@@ -50,7 +50,7 @@ export const characterStore = defineStore('characterStore', {
 
       this.attributes.forEach((attribute) => {
         if (attribute.key === key) {
-          attribute.increased = newValue
+          attribute.increased = attribute.increased === newValue ? 0 : newValue
           // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })
@@ -86,11 +86,13 @@ export const characterStore = defineStore('characterStore', {
         skill.value = Math.round(
           (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3,
         )
+        skill.increased = false
+        // skill.value = (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3
       } else {
         var baseValue = Math.round(
           (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3,
         )
-        var value = (skill.value = Math.round(
+        var value = Math.round(
           (firstAttribute.value +
             secondAttribute.value +
             thirdAttribute.value +
@@ -98,7 +100,18 @@ export const characterStore = defineStore('characterStore', {
             secondAttribute.increased +
             thirdAttribute.increased) /
             3,
-        ))
+        )
+        // var baseValue = (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3
+
+        // var value =
+        //   (firstAttribute.value +
+        //     secondAttribute.value +
+        //     thirdAttribute.value +
+        //     firstAttribute.increased +
+        //     secondAttribute.increased +
+        //     thirdAttribute.increased) /
+        //   3
+
         skill.value = value
         skill.increased = value > baseValue ? true : false
       }

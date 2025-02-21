@@ -12,6 +12,7 @@ export const characterStore = defineStore('characterStore', {
     ],
   }),
   getters: {
+    getAttributeValue: (state, key) => state.attributes.find((attribute) => attribute.key === key),
     // doubleCount: (state) => state.count * 2,
     // salaryInEuros: (state) => state.salary + ' €',
   },
@@ -24,20 +25,13 @@ export const characterStore = defineStore('characterStore', {
     },
     setAttribute(key, newValue) {
       if (key === null) window.alert('attribute is null!')
+
+      if (newValue > 16 || newValue < 8) newValue = newValue > 16 ? 16 : 8
+
       this.attributes.forEach((attribute) => {
         if (attribute.key === key) {
           attribute.value = newValue
-          window.alert(attribute.key + ':' + attribute.value + newValue)
-        }
-      })
-      this.calcSkills()
-    },
-    setAttributeViaObject(keyPair) {
-      if (keyPair === null) window.alert('keyPair is null!')
-      this.attributes.forEach((attribute) => {
-        if (attribute.key === keyPair.key) {
-          attribute.value = keyPair.value
-          window.alert(attribute.key + ':' + attribute.value + keyPair)
+          // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })
       this.calcSkills()
@@ -57,7 +51,7 @@ export const characterStore = defineStore('characterStore', {
           (attribute) => attribute.key === skill.attributes[2],
         ).value
         // window.confirm('3rd attribute -> ' + thirdAttribute)
-        skill.value = (firstAttribute + secondAttribute + thirdAttribute) / 3
+        skill.value = Math.round((firstAttribute + secondAttribute + thirdAttribute) / 3)
         // window.confirm('skill.value -> ' + skill.value)
       })
     },

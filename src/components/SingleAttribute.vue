@@ -10,6 +10,12 @@ defineProps({
   attributeName: String,
   attributeValue: Number,
 })
+
+function updateAttribute(attributeKey, currentValue) {
+  if (currentValue > 16 || currentValue < 8) currentValue = currentValue > 16 ? 16 : 8
+  this.attributeValue = currentValue
+  store.setAttribute(attributeKey, currentValue)
+}
 </script>
 
 <template>
@@ -19,12 +25,13 @@ defineProps({
     <input
       type="number"
       value="{{ attributeValue }}"
-      v-model="currentValue"
+      v-model.number="currentValue"
       placeholder="8"
       min="8"
       max="16"
-      @change="store.setAttribute(attributeKey, currentValue)"
+      @change="updateAttribute(attributeKey, currentValue)"
     />
+    <!-- @change="store.setAttribute(attributeKey, currentValue)" -->
   </div>
 </template>
 

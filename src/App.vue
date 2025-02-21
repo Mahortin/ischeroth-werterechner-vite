@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import AttributePage from './components/AttributePage.vue'
+import SimpleComponent from './components/SimpleComponent.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import AttributePage from './components/AttributePage.vue'
   </header>
 
   <main>
+    <SimpleComponent />
     <AttributePage />
     <TheWelcome />
   </main>

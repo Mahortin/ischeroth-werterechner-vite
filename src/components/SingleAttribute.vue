@@ -8,12 +8,6 @@ defineProps({
   attributeName: String,
   attributeValue: Number,
 })
-
-const emit = defineEmits(['attribute-changed'])
-
-function attributeChanged() {
-  emit
-}
 </script>
 
 <template>

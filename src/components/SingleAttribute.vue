@@ -71,7 +71,7 @@ label {
   background-color: #2c3e50; /* Darker background for modern look */
   color: #ecf0f1; /* Light text for contrast */
   border: 1px solid #34495e; /* Subtle, softer border */
-  padding: 10px 15px;
+  padding: 5px 8px;
   border-radius: 6px; /* Rounded corners */
   font-size: 16px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */

@@ -5,6 +5,7 @@ import HelloWorld from './components/HelloWorld.vue'
 // import SimpleComponentA from './components/SimpleComponentA.vue'
 // import SimpleComponentB from './components/SimpleComponentB.vue'
 import AttributesView from './components/AttributesView.vue'
+import AttributeViewAlternative from './components/AttributeViewAlternative.vue'
 import TalentsView from './components/TalentsView.vue'
 </script>
 
@@ -22,6 +23,7 @@ import TalentsView from './components/TalentsView.vue'
     <!-- <SimpleComponentB /> -->
     <AttributesView />
     <TalentsView />
+    <AttributeViewAlternative />
     <!-- <AttributePage /> -->
     <!-- <TheWelcome /> -->
   </main>

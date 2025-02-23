@@ -1,75 +1,58 @@
 <script setup>
-// import { ref, reactive, computed } from 'vue'
-// import { ref, reactive } from "vue";
 import { characterStore } from '@/stores/characterStore'
-import { ref } from 'vue'
 
 const store = characterStore()
-defineProps({
-  attributeKey: String,
-  attributeName: String,
-  attributeValue: Number,
-  increased: Number,
-})
-
-const currentValue = ref(8)
-
-function updateAttribute(attributeKey, currentValue) {
-  if (currentValue > 16 || currentValue < 8) currentValue = currentValue > 16 ? 16 : 8
-  this.attributeValue = currentValue
-  store.setAttribute(attributeKey, currentValue)
-}
-
-function increaseBaseBy(attributeKey, adjustment) {
-  this.currentValue = this.currentValue + adjustment
-  if (this.currentValue > 16 || this.currentValue < 8)
-    this.currentValue = this.currentValue > 16 ? 16 : 8
-  this.attributeValue = currentValue
-  store.setAttribute(attributeKey, this.currentValue)
-}
 </script>
 
 <template>
-  <div class="attribute-info">
-    <span class="attribute-key">{{ attributeKey }}</span>
-    <span class="attribute-name">{{ attributeName }}</span>
-    <input
-      :class="increased > 0 ? 'highlight' : ''"
-      type="number"
-      value="{{ attributeValue }}"
-      v-model.number="currentValue"
-      placeholder="8"
-      min="8"
-      max="16"
-      @change="updateAttribute(attributeKey, currentValue)"
-    />
-    <button :class="increased === 2 ? 'highlight' : ''" @click="increaseBaseBy(attributeKey, 16)">
-      Another thing {{ currentValue }}
-    </button>
-    <button :class="increased === 2 ? 'highlight' : ''" @click="store.setAttribute(attributeKey)">
-      {{ currentValue }}
-    </button>
-    <span>{{ increased }}</span>
-    <div>
-      <button
-        :class="increased === 1 ? 'highlight' : ''"
-        @click="store.increaseAttribute(attributeKey, 1)"
-      >
-        +
-      </button>
-      <button
-        :class="increased === 2 ? 'highlight' : ''"
-        @click="store.increaseAttribute(attributeKey, 2)"
-      >
-        ++
-      </button>
-      <!-- <button
-        :class="increased === 2 ? 'highlight' : ''"
-        @click="store.increaseAttribute(attributeKey, 2)"
-      >
-        ++
-      </button> -->
+  <div class="column">
+    <h2>Attribute Alternative</h2>
+    <!-- <label>{{ store.attributes }}</label> -->
+    <div v-for="attribute in store.attributes" :key="attribute.key" :value="attribute.value">
+      <div class="attribute-info">
+        <span class="attribute-key">{{ attribute.key }}</span>
+        <span class="attribute-name">{{ attribute.name }}</span>
+        <input
+          :class="increased > 0 ? 'highlight' : ''"
+          type="number"
+          value="{{ attribute.value }}"
+          v-model.number="currentValue"
+          placeholder="8"
+          min="8"
+          max="16"
+          @change="updateAttribute(attribute.key, currentValue)"
+        />
+        <button
+          :class="attribute.increased === 2 ? 'highlight' : ''"
+          @click="increaseBaseBy(attributeKey, 16)"
+        >
+          Another thing {{ currentValue }}
+        </button>
+        <button
+          :class="attribute.increased === 2 ? 'highlight' : ''"
+          @click="store.setAttribute(attribute.key)"
+        >
+          {{ currentValue }}
+        </button>
+        <span>{{ attribute.increased }}</span>
+        <div>
+          <button
+            :class="attribute.increased === 1 ? 'highlight' : ''"
+            @click="store.increaseAttribute(attribute.key, 1)"
+          >
+            +
+          </button>
+          <button
+            :class="attribute.increased === 2 ? 'highlight' : ''"
+            @click="store.increaseAttribute(attribute.key, 2)"
+          >
+            ++
+          </button>
+        </div>
+      </div>
     </div>
+    <!-- <button @click="doNothing">Nothing</button>
+    <button @click="incrementSkills">+ from component</button> -->
   </div>
 </template>
 

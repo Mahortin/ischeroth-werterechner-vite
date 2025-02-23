@@ -2,9 +2,8 @@
 // import { ref, reactive, computed } from 'vue'
 // import { ref, reactive } from "vue";
 import { characterStore } from '@/stores/characterStore'
-import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 
-const store = characterStore()
 defineProps({
   attributeKey: String,
   attributeName: String,
@@ -12,63 +11,43 @@ defineProps({
   increased: Number,
 })
 
-const currentValue = ref(8)
-
-function updateAttribute(attributeKey, currentValue) {
-  if (currentValue > 16 || currentValue < 8) currentValue = currentValue > 16 ? 16 : 8
-  this.attributeValue = currentValue
-  store.setAttribute(attributeKey, currentValue)
-}
-
-function increaseBaseBy(attributeKey, adjustment) {
-  this.currentValue = this.currentValue + adjustment
-  if (this.currentValue > 16 || this.currentValue < 8)
-    this.currentValue = this.currentValue > 16 ? 16 : 8
-  this.attributeValue = currentValue
-  store.setAttribute(attributeKey, this.currentValue)
-}
+const store = characterStore()
+const { getValueByKey } = storeToRefs(store)
 </script>
 
 <template>
   <div class="attribute-info">
     <span class="attribute-key">{{ attributeKey }}</span>
     <span class="attribute-name">{{ attributeName }}</span>
-    <input
-      :class="increased > 0 ? 'highlight' : ''"
-      type="number"
-      value="{{ attributeValue }}"
-      v-model.number="currentValue"
-      placeholder="8"
-      min="8"
-      max="16"
-      @change="updateAttribute(attributeKey, currentValue)"
-    />
-    <button :class="increased === 2 ? 'highlight' : ''" @click="increaseBaseBy(attributeKey, 16)">
-      Another thing {{ currentValue }}
-    </button>
-    <button :class="increased === 2 ? 'highlight' : ''" @click="store.setAttribute(attributeKey)">
-      {{ currentValue }}
-    </button>
-    <span>{{ increased }}</span>
+    <label :class="increased > 0 ? 'highlight' : ''">{{ getValueByKey(attributeKey) }}</label>
+    <div>
+      <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 1)">
+        +1
+      </button>
+      <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 5)">
+        +5
+      </button>
+      <button class="adjust-attribute reduce" @click="store.addToAttribute(attributeKey, -5)">
+        -5
+      </button>
+      <button class="adjust-attribute reduce" @click="store.addToAttribute(attributeKey, -1)">
+        -1
+      </button>
+    </div>
     <div>
       <button
-        :class="increased === 1 ? 'highlight' : ''"
+        :class="increased === 1 ? 'increase highlight' : 'increase'"
         @click="store.increaseAttribute(attributeKey, 1)"
       >
         +
       </button>
       <button
-        :class="increased === 2 ? 'highlight' : ''"
+        :class="increased === 2 ? 'increase highlight' : 'increase'"
         @click="store.increaseAttribute(attributeKey, 2)"
       >
         ++
       </button>
-      <!-- <button
-        :class="increased === 2 ? 'highlight' : ''"
-        @click="store.increaseAttribute(attributeKey, 2)"
-      >
-        ++
-      </button> -->
+      <span>{{ increased }}</span>
     </div>
   </div>
 </template>
@@ -80,7 +59,15 @@ function increaseBaseBy(attributeKey, adjustment) {
   width: 100%;
 }
 
-input {
+.arrange-horizontally > * {
+  display: inline-block;
+  text-align: center;
+}
+.arrange-vertically > * {
+  display: block;
+}
+
+label {
   background-color: #2c3e50; /* Darker background for modern look */
   color: #ecf0f1; /* Light text for contrast */
   border: 1px solid #34495e; /* Subtle, softer border */
@@ -93,22 +80,44 @@ input {
     box-shadow 0.3s ease; /* Smooth transitions */
 }
 
-input:focus {
+label:focus {
   border-color: #1abc9c; /* Slightly brighter border on focus */
   box-shadow: 0 0 5px rgba(26, 188, 156, 0.5); /* Add a subtle glow effect on focus */
   outline: none; /* Remove the default outline */
 }
 
-input::placeholder {
+label::placeholder {
   color: #7f8c8d; /* Slightly lighter placeholder text */
 }
 
-input.highlight {
+label.highlight {
   flex-shrink: 0;
   color: #3acf4b;
 }
 
-button {
+button.adjust-attribute {
+  padding: 3px 7px;
+  margin: 3px;
+  border: none;
+  border-radius: 8px; /* Softer edges with rounded corners */
+  background-color: #f8f2e8; /* Light gray background */
+  color: #333; /* Darker font color */
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+button.add {
+  background-color: greenyellow; /* Light gray background */
+}
+button.reduce {
+  background-color: coral; /* Light gray background */
+}
+
+button.increase {
   padding: 10px 20px;
   margin: 10px;
   border: none;

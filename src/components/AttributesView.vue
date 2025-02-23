@@ -38,7 +38,7 @@ function doNothing() {
         :key="attribute.key"
         :attributeKey="attribute.key"
         :attributeName="attribute.name"
-        :attributeValue="attribute.basevalue"
+        :attributeValue="attribute.value"
         :increased="attribute.increased"
         @attribute-changed="doNothing"
       ></AttributeComponent>

@@ -49,8 +49,14 @@ export const characterStore = defineStore('characterStore', {
     getAttributeValue: (state, key) => state.attributes.find((attribute) => attribute.key === key),
     getBaseAttributeValue: (state, key) =>
       state.attributes.find((attribute) => attribute.key === key),
-    // doubleCount: (state) => state.count * 2,
-    // salaryInEuros: (state) => state.salary + ' €',
+    getUserById: (state) => {
+      return (userId) => state.users.find((user) => user.id === userId)
+    },
+    getValueByKey: (state) => {
+      return (attributeKey) =>
+        state.attributes.find((attribute) => attribute.key === attributeKey).value +
+        state.attributes.find((attribute) => attribute.key === attributeKey).increased
+    },
   },
   actions: {
     increment() {
@@ -82,6 +88,20 @@ export const characterStore = defineStore('characterStore', {
         }
       })
       this.calcAllSkills()
+    },
+    addToAttribute(key, adjustment) {
+      if (key === null) window.alert('attribute is null!')
+
+      this.attributes.forEach((attribute) => {
+        if (attribute.key === key) {
+          attribute.value = attribute.value + adjustment
+          if (attribute.value > 16 || attribute.value < 8)
+            attribute.value = attribute.value > 16 ? 16 : 8
+          // window.alert(attribute.key + ':' + attribute.value + newValue)
+        }
+      })
+      this.calcAllSkills()
+      this.calcUpdatedSkills(key)
     },
     calcAllSkills() {
       this.skills.forEach((skill) => {

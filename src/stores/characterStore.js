@@ -18,6 +18,7 @@ export const characterStore = defineStore('characterStore', {
         name: 'Himmelskunde',
         value: 8,
         attributes: ['KL', 'IN', 'IN'],
+        divide: 3,
         increased: false,
         group: 'natur',
       },
@@ -26,6 +27,7 @@ export const characterStore = defineStore('characterStore', {
         name: 'Orientierung',
         value: 8,
         attributes: ['KL', 'IN', 'IN'],
+        divide: 3,
         increased: false,
         group: 'natur',
       },
@@ -34,6 +36,7 @@ export const characterStore = defineStore('characterStore', {
         name: 'Boot- & Seefahrt',
         value: 8,
         attributes: ['IN', 'GE', 'ST'],
+        divide: 3,
         increased: false,
         group: 'handwerk',
       },
@@ -42,6 +45,7 @@ export const characterStore = defineStore('characterStore', {
         name: 'Kampf',
         value: 8,
         attributes: ['ST', 'ST', 'KO'],
+        divide: 3,
         increased: false,
         group: 'kampf',
       },
@@ -50,6 +54,7 @@ export const characterStore = defineStore('characterStore', {
         name: 'Gesellschaft',
         value: 8,
         attributes: ['ST', 'ST', 'KO'],
+        divide: 3,
         increased: false,
         group: 'gesellschaft',
       },
@@ -58,6 +63,7 @@ export const characterStore = defineStore('characterStore', {
         name: 'Wissen',
         value: 8,
         attributes: ['KL', 'KL', 'IN'],
+        divide: 3,
         increased: false,
         group: 'wissen',
       },
@@ -112,7 +118,6 @@ export const characterStore = defineStore('characterStore', {
       this.attributes.forEach((attribute) => {
         if (attribute.key === key) {
           attribute.value = newValue
-          // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })
       this.calcUpdatedSkills(key)
@@ -123,7 +128,6 @@ export const characterStore = defineStore('characterStore', {
       this.attributes.forEach((attribute) => {
         if (attribute.key === key) {
           attribute.increased = attribute.increased === newValue ? 0 : newValue
-          // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })
       this.calcAllSkills()
@@ -146,7 +150,6 @@ export const characterStore = defineStore('characterStore', {
           attribute.value = attribute.value + adjustment
           if (attribute.value > 16 || attribute.value < 8)
             attribute.value = attribute.value > 16 ? 16 : 8
-          // window.alert(attribute.key + ':' + attribute.value + newValue)
         }
       })
       this.calcAllSkills()
@@ -180,13 +183,12 @@ export const characterStore = defineStore('characterStore', {
         thirdAttribute.increased === 0
       ) {
         skill.value = Math.round(
-          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3,
+          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / skill.divide,
         )
         skill.increased = false
-        // skill.value = (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3
       } else {
         var baseValue = Math.round(
-          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3,
+          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / skill.divide,
         )
         var value = Math.round(
           (firstAttribute.value +
@@ -195,19 +197,8 @@ export const characterStore = defineStore('characterStore', {
             firstAttribute.increased +
             secondAttribute.increased +
             thirdAttribute.increased) /
-            3,
+            skill.divide,
         )
-        // var baseValue = (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / 3
-
-        // var value =
-        //   (firstAttribute.value +
-        //     secondAttribute.value +
-        //     thirdAttribute.value +
-        //     firstAttribute.increased +
-        //     secondAttribute.increased +
-        //     thirdAttribute.increased) /
-        //   3
-
         skill.value = value
         skill.increased = value > baseValue ? true : false
       }

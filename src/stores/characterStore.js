@@ -15,6 +15,7 @@ export const characterStore = defineStore('characterStore', {
     skills: [
       {
         key: 'himmelskunde',
+        name: 'Himmelskunde',
         value: 8,
         attributes: ['KL', 'IN', 'IN'],
         increased: false,
@@ -22,6 +23,7 @@ export const characterStore = defineStore('characterStore', {
       },
       {
         key: 'orientierung',
+        name: 'Orientierung',
         value: 8,
         attributes: ['KL', 'IN', 'IN'],
         increased: false,
@@ -29,10 +31,35 @@ export const characterStore = defineStore('characterStore', {
       },
       {
         key: 'bootSeefahrt',
+        name: 'Boot- & Seefahrt',
         value: 8,
         attributes: ['IN', 'GE', 'ST'],
         increased: false,
         group: 'handwerk',
+      },
+      {
+        key: 'kampf',
+        name: 'Kampf',
+        value: 8,
+        attributes: ['ST', 'ST', 'KO'],
+        increased: false,
+        group: 'kampf',
+      },
+      {
+        key: 'gesellschaft',
+        name: 'Gesellschaft',
+        value: 8,
+        attributes: ['ST', 'ST', 'KO'],
+        increased: false,
+        group: 'gesellschaft',
+      },
+      {
+        key: 'wissen',
+        name: 'Wissen',
+        value: 8,
+        attributes: ['KL', 'KL', 'IN'],
+        increased: false,
+        group: 'wissen',
       },
     ],
     skillgroups: [
@@ -43,6 +70,7 @@ export const characterStore = defineStore('characterStore', {
       { key: 'wissen', name: 'Wissen' },
       { key: 'handwerk', name: 'Handwerk' },
     ],
+    groupfilter: [],
   }),
 
   getters: {
@@ -56,6 +84,9 @@ export const characterStore = defineStore('characterStore', {
       return (attributeKey) =>
         state.attributes.find((attribute) => attribute.key === attributeKey).value +
         state.attributes.find((attribute) => attribute.key === attributeKey).increased
+    },
+    getFilteredSkills: (state) => {
+      return state.skills.filter((skill) => state.groupfilter.includes(skill.group))
     },
   },
   actions: {
@@ -88,6 +119,13 @@ export const characterStore = defineStore('characterStore', {
         }
       })
       this.calcAllSkills()
+    },
+    addFilter(key) {
+      if (key === null) window.alert('group is null!')
+
+      !this.groupfilter.includes(key)
+        ? this.groupfilter.push(key)
+        : this.groupfilter.splice(this.groupfilter.indexOf(key))
     },
     addToAttribute(key, adjustment) {
       if (key === null) window.alert('attribute is null!')

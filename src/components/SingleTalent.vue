@@ -17,13 +17,11 @@ function listTalente() {
 <template>
   <button @click="listTalente()">SingleTalent</button>
 
-  <div>
+  <div :class="[skill.increased ? 'skill-info-highlighted' : 'skill-info']">
     <span>{{ talentKey }}</span>
     <span>{{ talentName }}</span>
     <span>{{ talentValue }}</span>
   </div>
 </template>
 
-<style scoped>
-/* @import '../assets/shared-styles.scss'; */
-</style>
+<style scoped></style>

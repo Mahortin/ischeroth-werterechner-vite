@@ -14,11 +14,6 @@ const obj = ref({
   arr: ['foo', 'bar'],
 })
 
-// eslint-disable-next-line
-// function increment() {
-//   count.value++;
-// }
-
 function login() {
   user.email = 'john doe'
 }

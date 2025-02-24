@@ -1,7 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import AttributePage from './components/AttributePage.vue'
+// import TheWelcome from './components/TheWelcome.vue'
+// import AttributePage from './components/AttributePage.vue'
+// import SimpleComponentA from './components/SimpleComponentA.vue'
+// import SimpleComponentB from './components/SimpleComponentB.vue'
+import AttributesView from './components/AttributesView.vue'
+import TalentsView from './components/TalentsView.vue'
 </script>
 
 <template>
@@ -14,8 +18,12 @@ import AttributePage from './components/AttributePage.vue'
   </header>
 
   <main>
-    <AttributePage />
-    <TheWelcome />
+    <!-- <SimpleComponentA /> -->
+    <!-- <SimpleComponentB /> -->
+    <AttributesView />
+    <TalentsView />
+    <!-- <AttributePage /> -->
+    <!-- <TheWelcome /> -->
   </main>
 </template>
 

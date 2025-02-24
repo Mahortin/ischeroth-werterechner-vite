@@ -1,29 +1,21 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
-// import AttributePage from './components/AttributePage.vue'
-// import SimpleComponentA from './components/SimpleComponentA.vue'
-// import SimpleComponentB from './components/SimpleComponentB.vue'
 import AttributesView from './components/AttributesView.vue'
 import TalentsView from './components/TalentsView.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="./assets/phoenix.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Ischeroth Werterechner" />
     </div>
   </header>
 
   <main>
-    <!-- <SimpleComponentA /> -->
-    <!-- <SimpleComponentB /> -->
     <AttributesView />
     <TalentsView />
-    <!-- <AttributePage /> -->
-    <!-- <TheWelcome /> -->
   </main>
 </template>
 
@@ -46,6 +38,7 @@ header {
 
   .logo {
     margin: 0 2rem 0 0;
+    color: white;
   }
 
   header .wrapper {

@@ -62,19 +62,20 @@ const store = characterStore()
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3acf4b; /* Slightly darker greenish background on hover */
-  color: #713604; /* Change the font color to white when active */
+  /* background-color: #93d800; 
+  color: #422002;  */
+  color: #93d800;
+  font-weight: bold;
   border-radius: 8px; /* Rounded corners for a modern feel */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease; /* Smooth transitions */
-  font-weight: bold; /* bold font for emphasis */
   width: 100%;
 }
 
 button.highlight {
-  background-color: #3acf4b; /* Modern blue background for active state */
-  color: #713604; /* Change the font color to white when active */
+  background-color: #93d800; /* Modern blue background for active state */
+  color: #422002; /* Change the font color to white when active */
 }
 </style>

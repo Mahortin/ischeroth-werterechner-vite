@@ -68,11 +68,11 @@ const { getValueByKey } = storeToRefs(store)
 }
 
 label {
-  background-color: #2c3e50; /* Darker background for modern look */
+  /* background-color: #2c3e50;  */
   color: #ecf0f1; /* Light text for contrast */
-  border: 1px solid #34495e; /* Subtle, softer border */
+  /* border: 1px solid #34495e; */
   padding: 5px 8px;
-  border-radius: 6px; /* Rounded corners */
+  border-radius: 6px;
   font-size: 16px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
   transition:
@@ -92,7 +92,8 @@ label::placeholder {
 
 label.highlight {
   flex-shrink: 0;
-  color: #3acf4b;
+  color: #93d800;
+  font-weight: bold;
 }
 
 button.adjust-attribute {
@@ -111,10 +112,12 @@ button.adjust-attribute {
 }
 
 button.add {
-  background-color: greenyellow; /* Light gray background */
+  background-color: #4500d8;
+  color: white;
 }
 button.reduce {
-  background-color: coral; /* Light gray background */
+  background-color: #d80027;
+  color: white;
 }
 
 button.increase {
@@ -133,19 +136,19 @@ button.increase {
 }
 /* Active state: Change only the background color */
 button.highlight {
-  background-color: #3acf4b; /* Modern blue background for active state */
-  color: #713604; /* Change the font color to white when active */
+  background-color: #93d800; /* Modern blue background for active state */
+  color: #422002; /* Change the font color to white when active */
 }
 
 /* Hover state: Slight background change and shadow lift */
 button:hover {
-  background-color: #f5ebda; /* Light gray on hover for normal buttons */
+  background-color: #00d8b1; /* Light gray on hover for normal buttons */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Increase shadow for hover effect */
 }
 
 /* Hover state for active button */
 button.highlight:hover {
-  background-color: #51cf5f; /* Slightly darker blue on hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Increase shadow for hover effect */
+  background-color: #7fbb00ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 </style>

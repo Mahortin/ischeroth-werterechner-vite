@@ -48,6 +48,14 @@ const store = characterStore()
 </template>
 
 <style scoped>
+button {
+  padding: 5px 5px;
+  margin: 3px;
+  border: none;
+  border-radius: 8px; /* Softer edges with rounded corners */
+  font-size: 16px;
+}
+
 .filter-buttons {
   display: inline-block;
   flex-direction: row;
@@ -70,7 +78,6 @@ const store = characterStore()
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease; /* Smooth transitions */
-  width: 100%;
 }
 
 button.highlight {

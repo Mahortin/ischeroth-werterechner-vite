@@ -17,7 +17,7 @@ const { getValueByKey } = storeToRefs(store)
 
 <template>
   <div class="attribute-info">
-    <span class="attribute-name">{{ attributeName }}</span>
+    <span class="attribute-name two-rows">{{ attributeName }}</span>
     <label :class="increased > 0 ? 'highlight' : ''">{{ getValueByKey(attributeKey) }}</label>
     <div>
       <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 1)">
@@ -52,10 +52,19 @@ const { getValueByKey } = storeToRefs(store)
 
 <style scoped>
 .attribute-info {
-  display: flex;
-  justify-content: space-between;
-  align-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  justify-content: center;
+  align-content: center;
   width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 5px;
+}
+
+.two-rows {
+  grid-row: span 2;
 }
 
 .arrange-horizontally > * {
@@ -70,14 +79,14 @@ label {
   /* background-color: #2c3e50;  */
   color: #ecf0f1; /* Light text for contrast */
   /* border: 1px solid #34495e; */
-  padding: 2px 2px;
+  padding: 0px 20px;
   font-size: 16px;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease; /* Smooth transitions */
 }
 
-label.highlight {
+.highlight {
   flex-shrink: 0;
   color: #93d800;
   font-weight: bold;
@@ -124,15 +133,16 @@ button.highlight {
   color: #422002; /* Change the font color to white when active */
 }
 
-/* Hover state: Slight background change and shadow lift */
-button:hover {
-  background-color: #00d8b1; /* Light gray on hover for normal buttons */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Increase shadow for hover effect */
-}
+/* Hover effects if hover is supported */
+@media (hover: hover) {
+  button:hover {
+    background-color: #00d8b1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
 
-/* Hover state for active button */
-button.highlight:hover {
-  background-color: #7fbb00ff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  button.highlight:hover {
+    background-color: #7fbb00ff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
 }
 </style>

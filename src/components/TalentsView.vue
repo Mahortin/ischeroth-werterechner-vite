@@ -38,7 +38,7 @@ const store = characterStore()
     </button>
     <button @click="store.resetFilter()">Reset</button>
     <div
-      :class="[skill.increased ? 'skill-info-highlighted' : 'skill-info']"
+      :class="[skill.increased ? 'skill-info highlight' : 'skill-info']"
       v-for="skill in store.getFilteredSkills"
       :key="skill.key"
       :value="skill.value"
@@ -64,7 +64,7 @@ const store = characterStore()
   width: 100%;
 }
 
-.skill-info-highlighted {
+div.highlight {
   display: flex;
   justify-content: space-between;
   align-items: center;

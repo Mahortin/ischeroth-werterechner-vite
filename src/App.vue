@@ -7,13 +7,12 @@ import TalentsView from './components/TalentsView.vue'
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/phoenix.svg" width="125" height="125" />
-
     <div class="wrapper">
       <HelloWorld msg="Ischeroth Werterechner" />
     </div>
   </header>
 
-  <main>
+  <main class="splitSection">
     <AttributesView />
     <TalentsView />
   </main>
@@ -32,8 +31,10 @@ header {
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     padding-right: calc(var(--section-gap) / 2);
+    background-color: #00261f;
   }
 
   .logo {
@@ -43,7 +44,7 @@ header {
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
+    place-items: center;
     flex-wrap: wrap;
   }
 }

@@ -28,8 +28,13 @@ a,
   }
 
   #app {
-    display: grid;
+    display: block;
     grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+  .splitSection {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     padding: 0 2rem;
   }
 }

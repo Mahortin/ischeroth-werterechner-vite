@@ -21,6 +21,7 @@ import TalentsView from './components/TalentsView.vue'
 <style scoped>
 header {
   line-height: 1.5;
+  background-color: #00261f;
 }
 
 .logo {
@@ -34,7 +35,6 @@ header {
     align-items: center;
     justify-content: center;
     padding-right: calc(var(--section-gap) / 2);
-    background-color: #00261f;
   }
 
   .logo {

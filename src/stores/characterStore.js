@@ -88,7 +88,13 @@ export const characterStore = defineStore('characterStore', {
     getFilteredSkills: (state) => {
       return state.groupfilter.length === 0
         ? state.skills
-        : state.skills.filter((skill) => !state.groupfilter.includes(skill.group))
+        : state.skills.filter((skill) =>
+            !state.groupfilter.includes('increased')
+              ? state.groupfilter.includes(skill.group)
+              : state.groupfilter.length === 1
+                ? skill.increased
+                : skill.increased && state.groupfilter.includes(skill.group),
+          )
     },
   },
   actions: {

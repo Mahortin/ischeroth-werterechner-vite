@@ -30,6 +30,12 @@ const store = characterStore()
         {{ group.name }}
       </button>
     </div>
+    <button
+      :class="store.groupfilter.includes('increased') ? 'highlight' : ''"
+      @click="store.addFilter('increased')"
+    >
+      Erhöhte
+    </button>
     <button @click="store.resetFilter()">Reset</button>
     <div
       :class="[skill.increased ? 'skill-info-highlighted' : 'skill-info']"

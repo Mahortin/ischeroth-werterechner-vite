@@ -17,7 +17,6 @@ const { getValueByKey } = storeToRefs(store)
 
 <template>
   <div class="attribute-info">
-    <span class="attribute-key">{{ attributeKey }}</span>
     <span class="attribute-name">{{ attributeName }}</span>
     <label :class="increased > 0 ? 'highlight' : ''">{{ getValueByKey(attributeKey) }}</label>
     <div>
@@ -47,7 +46,6 @@ const { getValueByKey } = storeToRefs(store)
       >
         ++
       </button>
-      <span>{{ increased }}</span>
     </div>
   </div>
 </template>
@@ -56,6 +54,7 @@ const { getValueByKey } = storeToRefs(store)
 .attribute-info {
   display: flex;
   justify-content: space-between;
+  align-content: space-between;
   width: 100%;
 }
 
@@ -71,23 +70,11 @@ label {
   /* background-color: #2c3e50;  */
   color: #ecf0f1; /* Light text for contrast */
   /* border: 1px solid #34495e; */
-  padding: 5px 8px;
-  border-radius: 6px;
+  padding: 2px 2px;
   font-size: 16px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease; /* Smooth transitions */
-}
-
-label:focus {
-  border-color: #1abc9c; /* Slightly brighter border on focus */
-  box-shadow: 0 0 5px rgba(26, 188, 156, 0.5); /* Add a subtle glow effect on focus */
-  outline: none; /* Remove the default outline */
-}
-
-label::placeholder {
-  color: #7f8c8d; /* Slightly lighter placeholder text */
 }
 
 label.highlight {
@@ -96,14 +83,17 @@ label.highlight {
   font-weight: bold;
 }
 
-button.adjust-attribute {
-  padding: 3px 7px;
+button {
+  padding: 5px 10px;
   margin: 3px;
   border: none;
   border-radius: 8px; /* Softer edges with rounded corners */
+  font-size: 16px;
+}
+
+button.adjust-attribute {
   background-color: #f8f2e8; /* Light gray background */
   color: #333; /* Darker font color */
-  font-size: 16px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   transition:
@@ -121,15 +111,9 @@ button.reduce {
 }
 
 button.increase {
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 8px; /* Softer edges with rounded corners */
   background-color: #f8f2e8; /* Light gray background */
   color: #333; /* Darker font color */
-  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease; /* Smooth transition effects */

@@ -18,16 +18,7 @@ const store = characterStore()
   <div class="column">
     <h2>Testarea</h2>
     <label>Filter: {{ store.groupfilter }}</label>
-    <div
-      :class="[skill.increased ? 'skill-info-highlighted' : 'skill-info']"
-      v-for="skill in store.getFilteredSkills"
-      :key="skill.key"
-      :value="skill.value"
-    >
-      <label>{{ skill.key }}: {{ skill.value }}</label>
-      <label>{{ skill.increased }}</label>
-      <label>{{ skill.group }}</label>
-    </div>
+    <label>Filter: {{ store.groupfilter.length }}</label>
 
     <h2>Talente</h2>
     <!-- <label>{{ store.attributes }}</label> -->
@@ -39,6 +30,7 @@ const store = characterStore()
         {{ group.name }}
       </button>
     </div>
+    <button @click="store.resetFilter()">Reset</button>
     <div
       :class="[skill.increased ? 'skill-info-highlighted' : 'skill-info']"
       v-for="skill in store.getFilteredSkills"

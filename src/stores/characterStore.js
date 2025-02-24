@@ -86,7 +86,9 @@ export const characterStore = defineStore('characterStore', {
         state.attributes.find((attribute) => attribute.key === attributeKey).increased
     },
     getFilteredSkills: (state) => {
-      return state.skills.filter((skill) => state.groupfilter.includes(skill.group))
+      return state.groupfilter.length === 0
+        ? state.skills
+        : state.skills.filter((skill) => !state.groupfilter.includes(skill.group))
     },
   },
   actions: {
@@ -119,6 +121,9 @@ export const characterStore = defineStore('characterStore', {
         }
       })
       this.calcAllSkills()
+    },
+    resetFilter() {
+      this.groupfilter = []
     },
     addFilter(key) {
       if (key === null) window.alert('group is null!')

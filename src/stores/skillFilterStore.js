@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const skillFilterStore = defineStore('skillFilterStore', {
   state: () => ({
     skillgroups: [
+      { key: 'coreStat', name: 'Grundwerte' },
       { key: 'kampf', name: 'Kampf' },
       { key: 'körper', name: 'Körper' },
       { key: 'gesellschaft', name: 'Gesellschaft' },

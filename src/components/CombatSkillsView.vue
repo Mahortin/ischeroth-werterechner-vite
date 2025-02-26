@@ -43,12 +43,6 @@ button {
   flex-direction: row;
 }
 
-.skill-info {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* width: 100%; */
-}
-
 .highlight {
   /* display: flex; */
   justify-content: space-between;

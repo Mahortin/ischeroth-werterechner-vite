@@ -1,32 +1,29 @@
 <script setup>
-import { characterStore } from '@/stores/characterStore'
+import { coreStatsStore } from '@/stores/coreStatsStore'
 
-const store = characterStore()
+const store = coreStatsStore()
 </script>
 
 <template>
   <div>
-    <h2>Talente</h2>
+    <h2>GRUNDWERTE!</h2>
     <table>
       <tr>
         <th>Talent</th>
-        <th>Expertise</th>
+        <th>Wert</th>
         <th>Gruppe</th>
       </tr>
       <tr
-        :class="[skill.increased ? 'skill-info highlight' : 'skill-info']"
-        v-for="skill in store.getFilteredSkills"
-        :key="skill.key"
-        :value="skill.value"
+        :class="[coreStat.increased ? 'skill-info highlight' : 'skill-info']"
+        v-for="coreStat in store.getFilteredCoreStats"
+        :key="coreStat.key"
+        :value="coreStat.value"
       >
-        <td>{{ skill.name }}</td>
-        <td>{{ skill.value }}</td>
-        <td>{{ skill.group }}</td>
+        <td>{{ coreStat.name }}</td>
+        <td>{{ coreStat.value }}</td>
+        <td>{{ coreStat.group }}</td>
       </tr>
     </table>
-
-    <!-- <button @click="doNothing">Nothing</button>
-    <button @click="incrementSkills">+ from component</button> -->
   </div>
 </template>
 

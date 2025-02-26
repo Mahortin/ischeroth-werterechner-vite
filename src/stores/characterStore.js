@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia'
 import { combatSkillStore } from './combatSkillStore'
 import { skillFilterStore } from './skillFilterStore'
+import { coreStatsStore } from './coreStatsStore'
 
 export const characterStore = defineStore('characterStore', {
   state: () => ({
-    combatSkillStore: combatSkillStore(),
+    combatSkills: combatSkillStore(),
+    coreStats: coreStatsStore(),
     filter: skillFilterStore(),
     attributes: [
       { key: 'MU', name: 'Mut', value: 8, increased: 0 },
@@ -435,6 +437,11 @@ export const characterStore = defineStore('characterStore', {
     },
   },
   actions: {
+    updateStores(key) {
+      this.calcUpdatedSkills(key)
+      this.combatSkills.calcUpdatedSkills(key)
+      this.coreStats.calcUpdatedCoreStats(key)
+    },
     increment() {
       this.attributes.forEach((attribute) => {
         attribute.value++
@@ -461,8 +468,7 @@ export const characterStore = defineStore('characterStore', {
           attribute.increased = attribute.increased === newValue ? 0 : newValue
         }
       })
-      this.calcAllSkills()
-      this.combatSkillStore.calcUpdatedSkills(key)
+      this.updateStores(key)
     },
     resetFilter() {
       this.groupfilter = []
@@ -485,8 +491,7 @@ export const characterStore = defineStore('characterStore', {
             attribute.value = attribute.value > 16 ? 16 : 8
         }
       })
-      this.calcUpdatedSkills(key)
-      this.combatSkillStore.calcUpdatedSkills(key)
+      this.updateStores(key)
     },
     calcAllSkills() {
       this.skills.forEach((skill) => {

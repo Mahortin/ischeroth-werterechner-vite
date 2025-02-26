@@ -69,7 +69,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
       else this.calcRangedSkill(skill)
     },
     calcMeleeSkill(skill) {
-      window.alert('reached')
+      // window.alert('reached')
       // window.confirm('reached calcSkill with: ' + skill.name)
       var muAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'MU')
       var inAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'IN')
@@ -80,14 +80,16 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         (attribute) => attribute.key === skill.attributes[3],
       )
 
+      /* calculate highest values for attack and defend */
       var currentMu = muAttribute.value + muAttribute.increased
-      // var currentIn = inAttribute.value + inAttribute.increased
+      var currentIn = inAttribute.value + inAttribute.increased
       var currentFirstAttr = firstAttribute.value + firstAttribute.increased
       var currentSecondAttr = secondAttribute.value + secondAttribute.increased
 
       var attackAttributes = []
-      if (currentMu > currentFirstAttr || currentMu > currentSecondAttr)
+      if (currentMu > currentFirstAttr || currentMu > currentSecondAttr) {
         attackAttributes.push(muAttribute)
+      }
       if (attackAttributes.length === 0) {
         attackAttributes.push(firstAttribute)
         attackAttributes.push(secondAttribute)
@@ -95,61 +97,70 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attackAttributes.push(
           currentFirstAttr > currentSecondAttr ? firstAttribute : secondAttribute,
         )
+
+      var defendAttributes = []
+      if (currentIn > currentFirstAttr || currentIn > currentSecondAttr) {
+        defendAttributes.push(inAttribute)
+      }
+      if (defendAttributes.length === 0) {
+        defendAttributes.push(firstAttribute)
+        defendAttributes.push(secondAttribute)
+      } else {
+        defendAttributes.push(
+          currentFirstAttr > currentSecondAttr ? firstAttribute : secondAttribute,
+        )
+      }
+      // window.confirm('reached before if')
       /* calculate attack value */
       if (attackAttributes.some((attribute) => attribute.increased)) {
-        window.alert('not implemented')
-        var baseValue = 0
-        var increasedValue = 0
+        // window.confirm('enter calcAttack increased')
+        var attackBase = 0
+        var attackIncreased = 0
         attackAttributes.forEach((attribute) => {
-          baseValue += attribute.value
-          increasedValue += attribute.value + attribute.increased
+          attackBase += attribute.value
+          attackIncreased += attribute.value + attribute.increased
         })
-        baseValue = Math.round(baseValue / skill.divide)
-        increasedValue = Math.round(increasedValue / skill.divide)
-        skill.attack = increasedValue
-        skill.increased = increasedValue > baseValue ? true : false
+        attackBase = Math.round(attackBase / skill.divide)
+        attackIncreased = Math.round(attackIncreased / skill.divide)
+        skill.attack = attackIncreased
+        skill.increased = attackIncreased > attackBase ? true : false
       } else {
-        var sum = 0
+        // window.confirm('enter calcAttack')
+        var attackSum = 0
+        // window.confirm('attack:attackSum -> ' + skill.attack + ':' + attackSum)
         attackAttributes.forEach((attribute) => {
-          sum += attribute.value
+          attackSum += attribute.value
         })
-        skill.attack = Math.round(sum / skill.divide)
+        skill.attack = Math.round(attackSum / skill.divide)
+        // window.confirm('attack:attackSum -> ' + skill.attack + ':' + attackSum)
         skill.increased = false
-      }
-      if (
-        muAttribute.increased === 0 &&
-        firstAttribute.increased === 0 &&
-        secondAttribute.increased === 0
-      ) {
-        // window.confirm('IF ')
-        // window.confirm('firstAttribute -> ' + firstAttribute.name + ':' + firstAttribute.value)
-        // window.confirm('secondAttribute -> ' + secondAttribute.name + ':' + secondAttribute.value)
-        // window.confirm('thirdAttribute -> ' + thirdAttribute.name + ':' + thirdAttribute.value)
-        skill.defend = Math.round(
-          (inAttribute.value + firstAttribute.value + secondAttribute.value) / skill.divide,
-        )
-        // window.confirm('if 2')
-        skill.increased = false
-        // window.confirm('if 3')
-      } else {
-        // window.confirm('ELSE ')
-        var baseDefendValue = Math.round(
-          (inAttribute.value + firstAttribute.value + secondAttribute.value) / skill.divide,
-        )
-        var defendValue = Math.round(
-          (inAttribute.value +
-            firstAttribute.value +
-            secondAttribute.value +
-            inAttribute.increased +
-            firstAttribute.increased +
-            secondAttribute.increased) /
-            skill.divide,
-        )
-        skill.defend = defendValue
-        if (!skill.increased) skill.increased = defendValue > baseDefendValue ? true : false
       }
       /* calculate defend value */
-      // window.confirm('end ')
+      if (defendAttributes.some((attribute) => attribute.increased)) {
+        // window.confirm('enter calcDefend increased')
+        var defendBase = 0
+        var defendIncreased = 0
+        defendAttributes.forEach((attribute) => {
+          defendBase += attribute.value
+          defendIncreased += attribute.value + attribute.increased
+        })
+        defendBase = Math.round(defendBase / skill.divide)
+        defendIncreased = Math.round(defendIncreased / skill.divide)
+        skill.defend = defendIncreased
+        skill.increased = defendIncreased > defendBase ? true : false
+      } else {
+        // window.confirm('enter calcDefend')
+        var defendSum = 0
+        // window.confirm('defendAttributes.length -> ' + defendAttributes.length)
+        // window.confirm('defend:defendSum -> ' + skill.defend + ':' + defendSum)
+        defendAttributes.forEach((attribute) => {
+          // window.confirm('attribute -> ' + attribute.name + ':' + attribute.value)
+          defendSum += attribute.value
+        })
+        skill.defend = Math.round(defendSum / skill.divide)
+        // window.confirm('defend:defendSum -> ' + skill.defend + ':' + defendSum)
+        skill.increased = skill.increased || false
+      }
     },
     calcRangedSkill(skill) {
       // window.confirm('reached calcSkill with: ' + skill.name)

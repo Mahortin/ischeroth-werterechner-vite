@@ -1,10 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import AttributesView from './components/AttributesView.vue'
-import TalentsView from './components/TalentsView.vue'
+import TalentsView from './components/SkillsView.vue'
 import CombatsSkillView from './components/CombatSkillsView.vue'
 import CoreStatsView from './components/CoreStatsView.vue'
 import SkillsFilter from './components/SkillsFilter.vue'
+import AllSkillsView from './components/AllSkillsView.vue'
 </script>
 
 <template>
@@ -17,10 +18,11 @@ import SkillsFilter from './components/SkillsFilter.vue'
 
   <main class="splitSection">
     <AttributesView />
-    <SkillsFilter />
+    <AllSkillsView />
+    <!-- <SkillsFilter />
     <CoreStatsView />
     <CombatsSkillView />
-    <TalentsView />
+    <TalentsView /> -->
   </main>
 </template>
 

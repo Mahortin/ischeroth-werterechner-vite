@@ -6,7 +6,6 @@ const store = combatSkillStore()
 
 <template>
   <div>
-    <h2>Kampf</h2>
     <table>
       <tr>
         <th>Talent</th>

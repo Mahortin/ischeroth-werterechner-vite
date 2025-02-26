@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/PageHeader.vue'
 import AttributesView from './components/AttributesView.vue'
 import AllSkillsView from './components/AllSkillsView.vue'
 </script>

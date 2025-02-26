@@ -7,17 +7,6 @@ const store = combatSkillStore()
 <template>
   <div>
     <h2>Kampf</h2>
-    <!-- <label>{{ store.attributes }}</label> -->
-    <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
-      <button
-        :class="store.groupfilter.includes(group.key) ? 'highlight' : ''"
-        @click="store.addFilter(group.key)"
-      >
-        {{ group.name }}
-      </button>
-    </div>
-    <label>MU: {{ store.getStore }}</label>
-
     <table>
       <tr>
         <th>Talent</th>

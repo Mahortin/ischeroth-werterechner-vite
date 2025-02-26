@@ -50,9 +50,6 @@ export const combatSkillStore = defineStore('combatSkillStore', {
                 : skill.increased && state.filter.groupfilter.includes(skill.group),
           )
     },
-    getStore: (state) => {
-      return state.characterStore.getValueByKey('MU')
-    },
   },
   actions: {
     calcAllSkills() {

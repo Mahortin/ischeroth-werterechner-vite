@@ -6,7 +6,7 @@ const store = combatSkillStore()
 
 <template>
   <div>
-    <h2>KAMPF!</h2>
+    <h2>Kampf</h2>
     <!-- <label>{{ store.attributes }}</label> -->
     <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
       <button
@@ -37,9 +37,6 @@ const store = combatSkillStore()
         <td>{{ skill.group }}</td>
       </tr>
     </table>
-
-    <!-- <button @click="doNothing">Nothing</button>
-    <button @click="incrementSkills">+ from component</button> -->
   </div>
 </template>
 

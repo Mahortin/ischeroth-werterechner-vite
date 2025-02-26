@@ -460,6 +460,7 @@ export const characterStore = defineStore('characterStore', {
         }
       })
       this.calcAllSkills()
+      this.combatSkillStore.calcUpdatedSkills(key)
     },
     resetFilter() {
       this.groupfilter = []
@@ -482,10 +483,7 @@ export const characterStore = defineStore('characterStore', {
             attribute.value = attribute.value > 16 ? 16 : 8
         }
       })
-      //ToDo: remove unused comments
-      // this.calcAllSkills()
       this.calcUpdatedSkills(key)
-      // window.confirm('reached characterStore')
       this.combatSkillStore.calcUpdatedSkills(key)
     },
     calcAllSkills() {

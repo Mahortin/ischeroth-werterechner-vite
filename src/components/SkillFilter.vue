@@ -1,32 +1,28 @@
 <script setup>
-import { characterStore } from '@/stores/characterStore'
+import { skillFilterStore } from '@/stores/skillFilterStore'
 
-const store = characterStore()
+const store = skillFilterStore()
 </script>
 
 <template>
   <div>
-    <h2>Talente</h2>
-    <table>
-      <tr>
-        <th>Talent</th>
-        <th>Expertise</th>
-        <th>Gruppe</th>
-      </tr>
-      <tr
-        :class="[skill.increased ? 'skill-info highlight' : 'skill-info']"
-        v-for="skill in store.getFilteredSkills"
-        :key="skill.key"
-        :value="skill.value"
+    <h2>Filter</h2>
+    <!-- <label>{{ store.attributes }}</label> -->
+    <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
+      <button
+        :class="store.groupfilter.includes(group.key) ? 'highlight' : ''"
+        @click="store.addFilter(group.key)"
       >
-        <td>{{ skill.name }}</td>
-        <td>{{ skill.value }}</td>
-        <td>{{ skill.group }}</td>
-      </tr>
-    </table>
-
-    <!-- <button @click="doNothing">Nothing</button>
-    <button @click="incrementSkills">+ from component</button> -->
+        {{ group.name }}
+      </button>
+    </div>
+    <button
+      :class="store.groupfilter.includes('increased') ? 'highlight' : ''"
+      @click="store.addFilter('increased')"
+    >
+      Erhöhte
+    </button>
+    <button @click="store.resetFilter()">Reset</button>
   </div>
 </template>
 
@@ -42,12 +38,6 @@ button {
 .filter-buttons {
   display: inline-block;
   flex-direction: row;
-}
-
-.skill-info {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* width: 100%; */
 }
 
 .highlight {

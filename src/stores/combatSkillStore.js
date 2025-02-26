@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { characterStore } from './characterStore'
+import { skillFilterStore } from './skillFilterStore'
 
 export const combatSkillStore = defineStore('combatSkillStore', {
   state: () => ({
     characterStore: characterStore(),
+    filter: skillFilterStore(),
     skills: [
       {
         key: 'dolchFechtwaffen',
@@ -38,14 +40,14 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         state.attributes.find((attribute) => attribute.key === attributeKey).increased
     },
     getFilteredSkills: (state) => {
-      return state.groupfilter.length === 0
+      return state.filter.groupfilter.length === 0
         ? state.skills
         : state.skills.filter((skill) =>
-            !state.groupfilter.includes('increased')
-              ? state.groupfilter.includes(skill.group)
-              : state.groupfilter.length === 1
+            !state.filter.groupfilter.includes('increased')
+              ? state.filter.groupfilter.includes(skill.group)
+              : state.filter.groupfilter.length === 1
                 ? skill.increased
-                : skill.increased && state.groupfilter.includes(skill.group),
+                : skill.increased && state.filter.groupfilter.includes(skill.group),
           )
     },
     getStore: (state) => {

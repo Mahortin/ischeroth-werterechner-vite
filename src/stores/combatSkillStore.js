@@ -25,7 +25,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         defend: 4,
         isMelee: false,
         attributes: ['IN', 'FF', 'ST'],
-        divide: 3,
+        divide: 2,
         increased: false,
         group: 'kampf',
       },
@@ -173,40 +173,48 @@ export const combatSkillStore = defineStore('combatSkillStore', {
       var thirdAttribute = this.characterStore.attributes.find(
         (attribute) => attribute.key === skill.attributes[2],
       )
+
+      var currentFirstAttr = firstAttribute.value + firstAttribute.increased
+      var currentSecondAttr = secondAttribute.value + secondAttribute.increased
+      var currentThirdAttr = thirdAttribute.value + thirdAttribute.increased
+
+      var attackAttributes = []
+      if (currentThirdAttr > currentFirstAttr || currentThirdAttr > currentSecondAttr) {
+        attackAttributes.push(thirdAttribute)
+      }
+      if (attackAttributes.length === 0) {
+        attackAttributes.push(firstAttribute)
+        attackAttributes.push(secondAttribute)
+      } else
+        attackAttributes.push(
+          currentFirstAttr > currentSecondAttr ? firstAttribute : secondAttribute,
+        )
+
       // window.confirm('reached calcSkill after all attributes: ')
 
       /* calculate attack value */
-      if (
-        firstAttribute.increased === 0 &&
-        secondAttribute.increased === 0 &&
-        thirdAttribute.increased === 0
-      ) {
-        // window.confirm('IF ')
-        // window.confirm('firstAttribute -> ' + firstAttribute.name + ':' + firstAttribute.value)
-        // window.confirm('secondAttribute -> ' + secondAttribute.name + ':' + secondAttribute.value)
-        // window.confirm('thirdAttribute -> ' + thirdAttribute.name + ':' + thirdAttribute.value)
-        skill.attack = Math.round(
-          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / skill.divide,
-        )
-        // window.confirm('if 2')
-        skill.increased = false
-        // window.confirm('if 3')
+      if (attackAttributes.some((attribute) => attribute.increased)) {
+        // window.confirm('enter calcAttack increased')
+        var attackBase = 0
+        var attackIncreased = 0
+        attackAttributes.forEach((attribute) => {
+          attackBase += attribute.value
+          attackIncreased += attribute.value + attribute.increased
+        })
+        attackBase = Math.round(attackBase / skill.divide)
+        attackIncreased = Math.round(attackIncreased / skill.divide)
+        skill.attack = attackIncreased
+        skill.increased = attackIncreased > attackBase ? true : false
       } else {
-        // window.confirm('ELSE ')
-        var baseValue = Math.round(
-          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / skill.divide,
-        )
-        var value = Math.round(
-          (firstAttribute.value +
-            secondAttribute.value +
-            thirdAttribute.value +
-            firstAttribute.increased +
-            secondAttribute.increased +
-            thirdAttribute.increased) /
-            skill.divide,
-        )
-        skill.attack = value
-        skill.increased = value > baseValue ? true : false
+        // window.confirm('enter calcAttack')
+        var attackSum = 0
+        // window.confirm('attack:attackSum -> ' + skill.attack + ':' + attackSum)
+        attackAttributes.forEach((attribute) => {
+          attackSum += attribute.value
+        })
+        skill.attack = Math.round(attackSum / skill.divide)
+        // window.confirm('attack:attackSum -> ' + skill.attack + ':' + attackSum)
+        skill.increased = false
       }
       skill.defend = Math.round(skill.attack / 2)
       /* calculate defend value */

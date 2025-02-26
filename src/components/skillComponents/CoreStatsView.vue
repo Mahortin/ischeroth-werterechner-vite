@@ -6,10 +6,9 @@ const store = coreStatsStore()
 
 <template>
   <div>
-    <h2>GRUNDWERTE!</h2>
     <table>
       <tr>
-        <th>Talent</th>
+        <th>Grundwert</th>
         <th>Wert</th>
         <th>Gruppe</th>
       </tr>

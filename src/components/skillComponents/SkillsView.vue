@@ -6,7 +6,6 @@ const store = characterStore()
 
 <template>
   <div>
-    <h2>Talente</h2>
     <table>
       <tr>
         <th>Talent</th>

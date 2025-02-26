@@ -6,7 +6,7 @@ const store = skillFilterStore()
 
 <template>
   <div>
-    <h2>Talente</h2>
+    <h2>Filter</h2>
     <!-- <label>{{ store.attributes }}</label> -->
     <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
       <button

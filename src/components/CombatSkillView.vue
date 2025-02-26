@@ -1,13 +1,12 @@
 <script setup>
-import { characterStore } from '@/stores/characterStore'
+import { combatSkillStore } from '@/stores/combatSkillStore'
 
-const store = characterStore()
-
+const store = combatSkillStore()
 </script>
 
 <template>
   <div>
-    <h2>Talente</h2>
+    <h2>KAMPF!</h2>
     <!-- <label>{{ store.attributes }}</label> -->
     <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
       <button
@@ -17,18 +16,13 @@ const store = characterStore()
         {{ group.name }}
       </button>
     </div>
-    <button
-      :class="store.groupfilter.includes('increased') ? 'highlight' : ''"
-      @click="store.addFilter('increased')"
-    >
-      Erhöhte
-    </button>
-    <button @click="store.resetFilter()">Reset</button>
+    <label>MU: {{ store.getStore }}</label>
 
     <table>
       <tr>
         <th>Talent</th>
-        <th>Expertise</th>
+        <th>AT</th>
+        <th>PA</th>
         <th>Gruppe</th>
       </tr>
       <tr
@@ -38,7 +32,8 @@ const store = characterStore()
         :value="skill.value"
       >
         <td>{{ skill.name }}</td>
-        <td>{{ skill.value }}</td>
+        <td>{{ skill.attack }}</td>
+        <td>{{ skill.defend }}</td>
         <td>{{ skill.group }}</td>
       </tr>
     </table>

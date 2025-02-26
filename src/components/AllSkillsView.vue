@@ -1,13 +1,15 @@
 <script setup>
-import SkillsFilter from './SkillsFilter.vue'
-import CombatSkillsView from './CombatSkillsView.vue'
-import SkillView from './SkillsView.vue'
+import SkillsFilter from './skillComponents/SkillsFilter.vue'
+import CoreStatsView from './skillComponents/CoreStatsView.vue'
+import CombatSkillsView from './skillComponents/CombatSkillsView.vue'
+import SkillView from './skillComponents/SkillsView.vue'
 </script>
 
 <template>
   <div class="column">
     <h2>Talente</h2>
     <SkillsFilter />
+    <CoreStatsView />
     <CombatSkillsView />
     <SkillView />
   </div>

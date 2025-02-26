@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia'
+import { combatSkillStore } from './combatSkillStore'
 
 export const characterStore = defineStore('characterStore', {
   state: () => ({
+    combatSkillStore: combatSkillStore(),
     attributes: [
       { key: 'MU', name: 'Mut', value: 8, increased: 0 },
       { key: 'KL', name: 'Klugheit', value: 8, increased: 0 },
@@ -413,12 +415,6 @@ export const characterStore = defineStore('characterStore', {
   }),
 
   getters: {
-    getAttributeValue: (state, key) => state.attributes.find((attribute) => attribute.key === key),
-    getBaseAttributeValue: (state, key) =>
-      state.attributes.find((attribute) => attribute.key === key),
-    getUserById: (state) => {
-      return (userId) => state.users.find((user) => user.id === userId)
-    },
     getValueByKey: (state) => {
       return (attributeKey) =>
         state.attributes.find((attribute) => attribute.key === attributeKey).value +
@@ -464,6 +460,7 @@ export const characterStore = defineStore('characterStore', {
         }
       })
       this.calcAllSkills()
+      this.combatSkillStore.calcUpdatedSkills(key)
     },
     resetFilter() {
       this.groupfilter = []
@@ -476,6 +473,7 @@ export const characterStore = defineStore('characterStore', {
         : this.groupfilter.splice(this.groupfilter.indexOf(key))
     },
     addToAttribute(key, adjustment) {
+      // window.confirm('reached characterStore')
       if (key === null) window.alert('attribute is null!')
 
       this.attributes.forEach((attribute) => {
@@ -485,8 +483,8 @@ export const characterStore = defineStore('characterStore', {
             attribute.value = attribute.value > 16 ? 16 : 8
         }
       })
-      this.calcAllSkills()
       this.calcUpdatedSkills(key)
+      this.combatSkillStore.calcUpdatedSkills(key)
     },
     calcAllSkills() {
       this.skills.forEach((skill) => {

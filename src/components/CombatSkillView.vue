@@ -1,34 +1,17 @@
 <script setup>
-import { characterStore } from '@/stores/characterStore'
+import { combatSkillStore } from '@/stores/combatSkillStore'
 
-const store = characterStore()
-
+const store = combatSkillStore()
 </script>
 
 <template>
   <div>
-    <h2>Talente</h2>
-    <!-- <label>{{ store.attributes }}</label> -->
-    <div class="filter-buttons" v-for="group in store.skillgroups" :key="group.key">
-      <button
-        :class="store.groupfilter.includes(group.key) ? 'highlight' : ''"
-        @click="store.addFilter(group.key)"
-      >
-        {{ group.name }}
-      </button>
-    </div>
-    <button
-      :class="store.groupfilter.includes('increased') ? 'highlight' : ''"
-      @click="store.addFilter('increased')"
-    >
-      Erhöhte
-    </button>
-    <button @click="store.resetFilter()">Reset</button>
-
+    <h2>Kampf</h2>
     <table>
       <tr>
         <th>Talent</th>
-        <th>Expertise</th>
+        <th>AT</th>
+        <th>PA</th>
         <th>Gruppe</th>
       </tr>
       <tr
@@ -38,13 +21,11 @@ const store = characterStore()
         :value="skill.value"
       >
         <td>{{ skill.name }}</td>
-        <td>{{ skill.value }}</td>
+        <td>{{ skill.attack }}</td>
+        <td>{{ skill.defend }}</td>
         <td>{{ skill.group }}</td>
       </tr>
     </table>
-
-    <!-- <button @click="doNothing">Nothing</button>
-    <button @click="incrementSkills">+ from component</button> -->
   </div>
 </template>
 

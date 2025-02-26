@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import AttributesView from './components/AttributesView.vue'
 import TalentsView from './components/TalentsView.vue'
+import CombatSkillView from './components/CombatSkillView.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import TalentsView from './components/TalentsView.vue'
 
   <main class="splitSection">
     <AttributesView />
+    <CombatSkillView />
     <TalentsView />
   </main>
 </template>

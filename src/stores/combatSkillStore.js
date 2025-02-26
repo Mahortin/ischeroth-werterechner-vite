@@ -14,7 +14,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         defend: 8,
         isMelee: true,
         attributes: ['MU', 'IN', 'FF', 'GE'],
-        divide: 3,
+        divide: 2,
         increased: false,
         group: 'kampf',
       },
@@ -69,53 +69,52 @@ export const combatSkillStore = defineStore('combatSkillStore', {
       else this.calcRangedSkill(skill)
     },
     calcMeleeSkill(skill) {
+      window.alert('reached')
       // window.confirm('reached calcSkill with: ' + skill.name)
-      var muAttribute = this.characterStore.attributes.find(
-        (attribute) => attribute.key === skill.attributes[0],
-      )
-      var inAttribute = this.characterStore.attributes.find(
-        (attribute) => attribute.key === skill.attributes[1],
-      )
+      var muAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'MU')
+      var inAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'IN')
       var firstAttribute = this.characterStore.attributes.find(
         (attribute) => attribute.key === skill.attributes[2],
       )
       var secondAttribute = this.characterStore.attributes.find(
         (attribute) => attribute.key === skill.attributes[3],
       )
-      // window.confirm('reached calcSkill after all attributes: ')
 
+      var currentMu = muAttribute.value + muAttribute.increased
+      // var currentIn = inAttribute.value + inAttribute.increased
+      var currentFirstAttr = firstAttribute.value + firstAttribute.increased
+      var currentSecondAttr = secondAttribute.value + secondAttribute.increased
+
+      var attackAttributes = []
+      if (currentMu > currentFirstAttr || currentMu > currentSecondAttr)
+        attackAttributes.push(muAttribute)
+      if (attackAttributes.length === 0) {
+        attackAttributes.push(firstAttribute)
+        attackAttributes.push(secondAttribute)
+      } else
+        attackAttributes.push(
+          currentFirstAttr > currentSecondAttr ? firstAttribute : secondAttribute,
+        )
       /* calculate attack value */
-      if (
-        muAttribute.increased === 0 &&
-        firstAttribute.increased === 0 &&
-        secondAttribute.increased === 0
-      ) {
-        // window.confirm('IF ')
-        // window.confirm('firstAttribute -> ' + firstAttribute.name + ':' + firstAttribute.value)
-        // window.confirm('secondAttribute -> ' + secondAttribute.name + ':' + secondAttribute.value)
-        // window.confirm('thirdAttribute -> ' + thirdAttribute.name + ':' + thirdAttribute.value)
-        skill.attack = Math.round(
-          (muAttribute.value + firstAttribute.value + secondAttribute.value) / skill.divide,
-        )
-        // window.confirm('if 2')
-        skill.increased = false
-        // window.confirm('if 3')
+      if (attackAttributes.some((attribute) => attribute.increased)) {
+        window.alert('not implemented')
+        var baseValue = 0
+        var increasedValue = 0
+        attackAttributes.forEach((attribute) => {
+          baseValue += attribute.value
+          increasedValue += attribute.value + attribute.increased
+        })
+        baseValue = Math.round(baseValue / skill.divide)
+        increasedValue = Math.round(increasedValue / skill.divide)
+        skill.attack = increasedValue
+        skill.increased = increasedValue > baseValue ? true : false
       } else {
-        // window.confirm('ELSE ')
-        var baseValue = Math.round(
-          (muAttribute.value + firstAttribute.value + secondAttribute.value) / skill.divide,
-        )
-        var value = Math.round(
-          (muAttribute.value +
-            firstAttribute.value +
-            secondAttribute.value +
-            muAttribute.increased +
-            firstAttribute.increased +
-            secondAttribute.increased) /
-            skill.divide,
-        )
-        skill.attack = value
-        skill.increased = value > baseValue ? true : false
+        var sum = 0
+        attackAttributes.forEach((attribute) => {
+          sum += attribute.value
+        })
+        skill.attack = Math.round(sum / skill.divide)
+        skill.increased = false
       }
       if (
         muAttribute.increased === 0 &&

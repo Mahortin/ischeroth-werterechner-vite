@@ -1,7 +1,7 @@
 <script setup>
-import { characterStore } from '@/stores/characterStore'
+import { skillFilterStore } from '@/stores/skillFilterStore'
 
-const store = characterStore()
+const store = skillFilterStore()
 </script>
 
 <template>

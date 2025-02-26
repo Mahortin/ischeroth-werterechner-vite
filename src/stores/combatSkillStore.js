@@ -16,6 +16,17 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         increased: false,
         group: 'kampf',
       },
+      {
+        key: 'armbrust',
+        name: 'Armbrust',
+        attack: 8,
+        defend: 4,
+        isMelee: false,
+        attributes: ['IN', 'FF', 'ST'],
+        divide: 3,
+        increased: false,
+        group: 'kampf',
+      },
     ],
     groupfilter: [],
   }),
@@ -105,7 +116,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
             skill.divide,
         )
         skill.attack = value
-        if (!skill.increased) skill.increased = value > baseValue ? true : false
+        skill.increased = value > baseValue ? true : false
       }
       if (
         muAttribute.increased === 0 &&
@@ -137,14 +148,60 @@ export const combatSkillStore = defineStore('combatSkillStore', {
             skill.divide,
         )
         skill.defend = defendValue
-        skill.increased = defendValue > baseDefendValue ? true : false
+        if (!skill.increased) skill.increased = defendValue > baseDefendValue ? true : false
       }
       /* calculate defend value */
       // window.confirm('end ')
     },
     calcRangedSkill(skill) {
-      window.alert('Not yet implemented ')
-      return null
+      // window.confirm('reached calcSkill with: ' + skill.name)
+      var firstAttribute = this.characterStore.attributes.find(
+        (attribute) => attribute.key === skill.attributes[0],
+      )
+      var secondAttribute = this.characterStore.attributes.find(
+        (attribute) => attribute.key === skill.attributes[1],
+      )
+      var thirdAttribute = this.characterStore.attributes.find(
+        (attribute) => attribute.key === skill.attributes[2],
+      )
+      // window.confirm('reached calcSkill after all attributes: ')
+
+      /* calculate attack value */
+      if (
+        firstAttribute.increased === 0 &&
+        secondAttribute.increased === 0 &&
+        thirdAttribute.increased === 0
+      ) {
+        // window.confirm('IF ')
+        // window.confirm('firstAttribute -> ' + firstAttribute.name + ':' + firstAttribute.value)
+        // window.confirm('secondAttribute -> ' + secondAttribute.name + ':' + secondAttribute.value)
+        // window.confirm('thirdAttribute -> ' + thirdAttribute.name + ':' + thirdAttribute.value)
+        skill.attack = Math.round(
+          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / skill.divide,
+        )
+        // window.confirm('if 2')
+        skill.increased = false
+        // window.confirm('if 3')
+      } else {
+        // window.confirm('ELSE ')
+        var baseValue = Math.round(
+          (firstAttribute.value + secondAttribute.value + thirdAttribute.value) / skill.divide,
+        )
+        var value = Math.round(
+          (firstAttribute.value +
+            secondAttribute.value +
+            thirdAttribute.value +
+            firstAttribute.increased +
+            secondAttribute.increased +
+            thirdAttribute.increased) /
+            skill.divide,
+        )
+        skill.attack = value
+        skill.increased = value > baseValue ? true : false
+      }
+      skill.defend = Math.round(skill.attack / 2)
+      /* calculate defend value */
+      // window.confirm('end ')
     },
   },
 })

@@ -65,7 +65,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
       {
         key: 'schilde',
         name: 'Schilde',
-        attack: 8,
+        attack: 0,
         defend: 8,
         isMelee: false,
         attributes: ['FF', 'ST', 'KO'],
@@ -305,6 +305,10 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         skill.increased = false
       }
       skill.defend = Math.round(skill.attack / 2)
+      if (skill.key === 'schilde') {
+        skill.defend = skill.attack
+        skill.attack = 0
+      }
       /* calculate defend value */
       // window.confirm('end ')
     },

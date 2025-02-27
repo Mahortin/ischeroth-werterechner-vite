@@ -16,7 +16,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['MU', 'IN', 'FF', 'GE'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'hiebKettenwaffen',
@@ -27,7 +28,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['MU', 'IN', 'ST', 'KO'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'raufenRingen',
@@ -38,7 +40,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['MU', 'IN', 'GE', 'ST'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'saebelSchwerter',
@@ -49,7 +52,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['MU', 'IN', 'GE', 'ST'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'speereStaebe',
@@ -60,7 +64,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['MU', 'IN', 'GE', 'ST'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'schilde',
@@ -71,7 +76,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['FF', 'ST', 'KO'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'armbrust',
@@ -82,7 +88,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['IN', 'FF', 'ST'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'bogen',
@@ -93,7 +100,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['FF', 'GE', 'ST'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'feuerrohre',
@@ -104,7 +112,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['KL', 'IN', 'FF'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
       {
         key: 'wurfSchleuderwaffen',
@@ -115,10 +124,10 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attributes: ['FF', 'GE', 'ST'],
         divide: 2,
         increased: false,
-        group: 'kampf',
+        group: 'Kampf',
+        groupkey: 'kampf',
       },
     ],
-    groupfilter: [],
   }),
 
   getters: {
@@ -132,10 +141,10 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         ? state.skills
         : state.skills.filter((skill) =>
             !state.filter.groupfilter.includes('increased')
-              ? state.filter.groupfilter.includes(skill.group)
+              ? state.filter.groupfilter.includes(skill.groupkey)
               : state.filter.groupfilter.length === 1
                 ? skill.increased
-                : skill.increased && state.filter.groupfilter.includes(skill.group),
+                : skill.increased && state.filter.groupfilter.includes(skill.groupkey),
           )
     },
   },

@@ -26,7 +26,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'GE', 'ST'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'athletik',
@@ -35,7 +36,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['GE', 'KO', 'ST'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'diebeskunst',
@@ -44,7 +46,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'heimlichkeit',
@@ -53,7 +56,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'IN', 'GE'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'horchen',
@@ -62,7 +66,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'KO'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'klettern',
@@ -71,7 +76,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'GE', 'ST'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'reiten',
@@ -80,7 +86,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['CH', 'GE', 'ST'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'schwimmen',
@@ -89,7 +96,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['GE', 'KO', 'ST'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'verborgenesErkennen',
@@ -98,7 +106,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'zechen',
@@ -107,7 +116,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['IN', 'ST', 'KO'],
         divide: 3,
         increased: false,
-        group: 'körper',
+        group: 'Körper',
+        groupkey: 'körper',
       },
       {
         key: 'faehrtensuche',
@@ -116,7 +126,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'KO'],
         divide: 3,
         increased: false,
-        group: 'natur',
+        group: 'Natur',
+        groupkey: 'natur',
       },
       {
         key: 'fischenAngeln',
@@ -125,7 +136,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['IN', 'FF', 'ST'],
         divide: 3,
         increased: false,
-        group: 'natur',
+        group: 'Natur',
+        groupkey: 'natur',
       },
       {
         key: 'himmelskunde',
@@ -134,7 +146,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'IN'],
         divide: 3,
         increased: false,
-        group: 'natur',
+        group: 'Natur',
+        groupkey: 'natur',
       },
       {
         key: 'orientierung',
@@ -143,7 +156,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'IN'],
         divide: 3,
         increased: false,
-        group: 'natur',
+        group: 'Natur',
+        groupkey: 'natur',
       },
       {
         key: 'pflanzenkunde',
@@ -152,7 +166,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
-        group: 'natur',
+        group: 'Natur',
+        groupkey: 'natur',
       },
       {
         key: 'tierkunde',
@@ -161,7 +176,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'natur',
+        group: 'Natur',
+        groupkey: 'natur',
       },
       {
         key: 'alchemie',
@@ -170,7 +186,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'KL', 'FF'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'bootSeefahrt',
@@ -179,7 +196,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['IN', 'GE', 'KO'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'fahrzeugLenken',
@@ -188,7 +206,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['IN', 'CH', 'FF'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'holzbearbeitung',
@@ -197,7 +216,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'FF', 'ST'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'kochenBrauen',
@@ -206,7 +226,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'FF', 'FF'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'lehmSteinbearbeitung',
@@ -215,7 +236,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'FF', 'FF'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'malenZeichnen',
@@ -224,7 +246,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'musizieren',
@@ -233,7 +256,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['IN', 'CH', 'FF'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'schmiedekunst',
@@ -242,7 +266,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['FF', 'KO', 'ST'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'schneiderLederarbeiten',
@@ -251,7 +276,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'FF', 'KO'],
         divide: 3,
         increased: false,
-        group: 'handwerk',
+        group: 'Handwerk',
+        groupkey: 'handwerk',
       },
       {
         key: 'einschuechtern',
@@ -260,7 +286,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'CH', 'ST'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'handel',
@@ -269,7 +296,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'schauspielerei',
@@ -278,7 +306,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'KL', 'CH'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'standeswissen',
@@ -287,7 +316,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'tanzen',
@@ -296,7 +326,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['CH', 'GE', 'GE'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'ueberreden',
@@ -305,7 +336,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'IN', 'CH'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'ueberzeugen',
@@ -314,7 +346,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
-        group: 'gesellschaft',
+        group: 'Gesellschaft',
+        groupkey: 'gesellschaft',
       },
       {
         key: 'architekt',
@@ -323,7 +356,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'KL', 'FF'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'geographie',
@@ -332,7 +366,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'geschichtswissen',
@@ -341,7 +376,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'goetterKulte',
@@ -350,7 +386,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'heilkundeGeist',
@@ -359,7 +396,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'heilkundeKoerper',
@@ -368,7 +406,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'kriegskunst',
@@ -377,7 +416,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['MU', 'KL', 'CH'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'magiekunde',
@@ -386,7 +426,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'rechnenPhysik',
@@ -395,7 +436,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
       {
         key: 'rechtsStaatskunst',
@@ -404,7 +446,8 @@ export const characterStore = defineStore('characterStore', {
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
-        group: 'wissen',
+        group: 'Wissen',
+        groupkey: 'wissen',
       },
     ],
     skillgroups: [
@@ -429,10 +472,10 @@ export const characterStore = defineStore('characterStore', {
         ? state.skills
         : state.skills.filter((skill) =>
             !state.filter.groupfilter.includes('increased')
-              ? state.filter.groupfilter.includes(skill.group)
+              ? state.filter.groupfilter.includes(skill.groupkey)
               : state.filter.groupfilter.length === 1
                 ? skill.increased
-                : skill.increased && state.filter.groupfilter.includes(skill.group),
+                : skill.increased && state.filter.groupfilter.includes(skill.groupkey),
           )
     },
   },

@@ -14,7 +14,8 @@ export const coreStatsStore = defineStore('coreStatsStore', {
         attributes: ['ST', 'KO', 'KO'],
         divide: 3,
         increased: false,
-        group: 'coreStat',
+        group: 'Grundwert',
+        groupkey: 'coreStat',
       },
       {
         key: 'bewegung',
@@ -23,7 +24,8 @@ export const coreStatsStore = defineStore('coreStatsStore', {
         attributes: ['IN', 'GE', 'GE'],
         divide: 5,
         increased: false,
-        group: 'coreStat',
+        group: 'Grundwert',
+        groupkey: 'coreStat',
       },
       {
         key: 'mumm',
@@ -32,7 +34,8 @@ export const coreStatsStore = defineStore('coreStatsStore', {
         attributes: ['MU', 'MU', 'KL'],
         divide: 5,
         increased: false,
-        group: 'coreStat',
+        group: 'Grundwert',
+        groupkey: 'coreStat',
       },
       {
         key: 'reflexe',
@@ -41,7 +44,8 @@ export const coreStatsStore = defineStore('coreStatsStore', {
         attributes: ['KL', 'IN', 'GE'],
         divide: 3,
         increased: false,
-        group: 'coreStat',
+        group: 'Grundwert',
+        groupkey: 'coreStat',
       },
       {
         key: 'sprachbegabung',
@@ -50,10 +54,10 @@ export const coreStatsStore = defineStore('coreStatsStore', {
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
-        group: 'coreStat',
+        group: 'Grundwert',
+        groupkey: 'coreStat',
       },
     ],
-    groupfilter: [],
   }),
 
   getters: {
@@ -67,10 +71,10 @@ export const coreStatsStore = defineStore('coreStatsStore', {
         ? state.coreStats
         : state.coreStats.filter((coreStat) =>
             !state.filter.groupfilter.includes('increased')
-              ? state.filter.groupfilter.includes(coreStat.group)
+              ? state.filter.groupfilter.includes(coreStat.groupkey)
               : state.filter.groupfilter.length === 1
                 ? coreStat.increased
-                : coreStat.increased && state.filter.groupfilter.includes(coreStat.group),
+                : coreStat.increased && state.filter.groupfilter.includes(coreStat.groupkey),
           )
     },
   },

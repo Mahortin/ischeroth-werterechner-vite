@@ -450,15 +450,6 @@ export const characterStore = defineStore('characterStore', {
         groupkey: 'wissen',
       },
     ],
-    skillgroups: [
-      { key: 'kampf', name: 'Kampf' },
-      { key: 'körper', name: 'Körper' },
-      { key: 'gesellschaft', name: 'Gesellschaft' },
-      { key: 'natur', name: 'Natur' },
-      { key: 'wissen', name: 'Wissen' },
-      { key: 'handwerk', name: 'Handwerk' },
-    ],
-    groupfilter: [],
   }),
 
   getters: {

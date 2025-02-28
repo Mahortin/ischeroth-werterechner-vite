@@ -10,7 +10,6 @@ const store = skillFilterStore()
 
 <template>
   <div class="column">
-    <label>{{ store.groupfilter }}</label>
     <h2>Talente</h2>
     <SkillsFilter />
     <CoreStatsView

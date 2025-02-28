@@ -16,10 +16,12 @@ const { getValueByKey } = storeToRefs(store)
 </script>
 
 <template>
-  <div class="attribute-info">
-    <span class="attribute-name two-rows">{{ attributeName }}</span>
-    <label :class="increased > 0 ? 'highlight' : ''">{{ getValueByKey(attributeKey) }}</label>
-    <div>
+  <div class="attribute-info wrapper">
+    <span class="attribute-name item1">{{ attributeName }}</span>
+    <label :class="increased > 0 ? 'highlight item2' : 'item2'">{{
+      getValueByKey(attributeKey)
+    }}</label>
+    <div class="item3">
       <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 1)">
         +1
       </button>
@@ -35,7 +37,7 @@ const { getValueByKey } = storeToRefs(store)
     </div>
     <div>
       <button
-        :class="increased === 1 ? 'increase highlight' : 'increase'"
+        :class="increased === 1 ? 'increase highlight item4' : 'increase item4'"
         @click="store.increaseAttribute(attributeKey, 1)"
       >
         +
@@ -58,9 +60,35 @@ const { getValueByKey } = storeToRefs(store)
   justify-content: center;
   align-content: center;
   width: 100%;
-  max-width: 500px;
+  /* max-width: 500px; */
   margin: auto;
-  padding: 5px;
+  padding: 2px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: 20%;
+  grid-template-areas:
+    'a a a a b b b b'
+    'a a a a b b b b'
+    'c c c c d d d d'
+    'c c c c d d d d';
+  align-items: start;
+}
+
+.item1 {
+  grid-area: a;
+}
+.item2 {
+  grid-area: b;
+}
+.item3 {
+  grid-area: c;
+}
+.item4 {
+  grid-area: d;
 }
 
 .two-rows {

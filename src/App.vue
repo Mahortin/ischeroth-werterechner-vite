@@ -16,6 +16,11 @@ import AllSkillsView from './components/AllSkillsView.vue'
     <AttributesView />
     <AllSkillsView />
   </main>
+  <footer>
+    <label>Beta Version</label><br />
+    <label>v0.1</label><br />
+    <label>Feedback-Gebete an Makofu</label>
+  </footer>
 </template>
 
 <style scoped>

@@ -24,7 +24,7 @@ export const skillFilterStore = defineStore('skillFilterStore', {
 
       !this.groupfilter.includes(key)
         ? this.groupfilter.push(key)
-        : this.groupfilter.splice(this.groupfilter.indexOf(key))
+        : this.groupfilter.splice(this.groupfilter.indexOf(key), 1)
     },
   },
 })

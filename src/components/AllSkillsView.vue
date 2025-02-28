@@ -10,6 +10,7 @@ const store = skillFilterStore()
 
 <template>
   <div class="column">
+    <label>{{ store.groupfilter }}</label>
     <h2>Talente</h2>
     <SkillsFilter />
     <CoreStatsView
@@ -22,7 +23,7 @@ const store = skillFilterStore()
     <CombatSkillsView
       v-if="
         store.groupfilter.length === 0 ||
-        store.groupfilter.includes('coreStat') ||
+        store.groupfilter.includes('kampf') ||
         (store.groupfilter.length === 1 && store.groupfilter.includes('increased'))
       "
     />

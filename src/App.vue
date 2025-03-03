@@ -1,35 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
-// import AttributePage from './components/AttributePage.vue'
-// import SimpleComponentA from './components/SimpleComponentA.vue'
-// import SimpleComponentB from './components/SimpleComponentB.vue'
+import HelloWorld from './components/PageHeader.vue'
 import AttributesView from './components/AttributesView.vue'
-import TalentsView from './components/TalentsView.vue'
+import AllSkillsView from './components/AllSkillsView.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
+    <img alt="Vue logo" class="logo" src="./assets/phoenix.svg" width="125" height="125" />
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Ischeroth Werterechner" />
     </div>
   </header>
 
-  <main>
-    <!-- <SimpleComponentA /> -->
-    <!-- <SimpleComponentB /> -->
+  <main class="splitSection">
     <AttributesView />
-    <TalentsView />
-    <!-- <AttributePage /> -->
-    <!-- <TheWelcome /> -->
+    <AllSkillsView />
   </main>
+  <footer>
+    <label>Beta Version</label><br />
+    <label>v0.1</label><br />
+    <label>Feedback-Gebete an Makofu</label>
+  </footer>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
+  background-color: #00261f;
 }
 
 .logo {
@@ -40,17 +37,19 @@ header {
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     padding-right: calc(var(--section-gap) / 2);
   }
 
   .logo {
     margin: 0 2rem 0 0;
+    color: white;
   }
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
+    place-items: center;
     flex-wrap: wrap;
   }
 }

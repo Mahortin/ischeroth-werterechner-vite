@@ -10,7 +10,7 @@ export const coreStatsStore = defineStore('coreStatsStore', {
       {
         key: 'robustheit',
         name: 'Robustheit',
-        value: 8,
+        value: 12,
         attributes: ['ST', 'KO', 'KO'],
         divide: 3,
         increased: false,
@@ -20,7 +20,7 @@ export const coreStatsStore = defineStore('coreStatsStore', {
       {
         key: 'bewegung',
         name: 'Bewegung',
-        value: 8,
+        value: 7,
         attributes: ['IN', 'GE', 'GE'],
         divide: 5,
         increased: false,
@@ -30,7 +30,7 @@ export const coreStatsStore = defineStore('coreStatsStore', {
       {
         key: 'mumm',
         name: 'Mumm',
-        value: 8,
+        value: 7,
         attributes: ['MU', 'MU', 'KL'],
         divide: 5,
         increased: false,
@@ -40,7 +40,7 @@ export const coreStatsStore = defineStore('coreStatsStore', {
       {
         key: 'reflexe',
         name: 'Reflexe',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'GE'],
         divide: 3,
         increased: false,
@@ -50,7 +50,7 @@ export const coreStatsStore = defineStore('coreStatsStore', {
       {
         key: 'sprachbegabung',
         name: 'Sprachbegabung',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,

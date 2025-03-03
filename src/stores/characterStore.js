@@ -9,20 +9,20 @@ export const characterStore = defineStore('characterStore', {
     coreStats: coreStatsStore(),
     filter: skillFilterStore(),
     attributes: [
-      { key: 'MU', name: 'Mut', value: 8, increased: 0 },
-      { key: 'KL', name: 'Klugheit', value: 8, increased: 0 },
-      { key: 'IN', name: 'Intuition', value: 8, increased: 0 },
-      { key: 'CH', name: 'Charisma', value: 8, increased: 0 },
-      { key: 'FF', name: 'Fingerfertigkeit', value: 8, increased: 0 },
-      { key: 'GE', name: 'Gewandheit', value: 8, increased: 0 },
-      { key: 'ST', name: 'Stärke', value: 8, increased: 0 },
-      { key: 'KO', name: 'Konstitution', value: 8, increased: 0 },
+      { key: 'MU', name: 'Mut', value: 12, increased: 0 },
+      { key: 'KL', name: 'Klugheit', value: 12, increased: 0 },
+      { key: 'IN', name: 'Intuition', value: 12, increased: 0 },
+      { key: 'CH', name: 'Charisma', value: 12, increased: 0 },
+      { key: 'FF', name: 'Fingerfertigkeit', value: 12, increased: 0 },
+      { key: 'GE', name: 'Gewandheit', value: 12, increased: 0 },
+      { key: 'ST', name: 'Stärke', value: 12, increased: 0 },
+      { key: 'KO', name: 'Konstitution', value: 12, increased: 0 },
     ],
     skills: [
       {
         key: 'akrobatik',
         name: 'Akrobatik',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'GE', 'ST'],
         divide: 3,
         increased: false,
@@ -32,7 +32,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'athletik',
         name: 'Athletik',
-        value: 8,
+        value: 12,
         attributes: ['GE', 'KO', 'ST'],
         divide: 3,
         increased: false,
@@ -42,7 +42,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'diebeskunst',
         name: 'Diebeskunst',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
@@ -52,7 +52,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'heimlichkeit',
         name: 'Heimlichkeit',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'IN', 'GE'],
         divide: 3,
         increased: false,
@@ -62,7 +62,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'horchen',
         name: 'Horchen',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'KO'],
         divide: 3,
         increased: false,
@@ -72,7 +72,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'klettern',
         name: 'Klettern',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'GE', 'ST'],
         divide: 3,
         increased: false,
@@ -82,7 +82,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'reiten',
         name: 'Reiten',
-        value: 8,
+        value: 12,
         attributes: ['CH', 'GE', 'ST'],
         divide: 3,
         increased: false,
@@ -92,7 +92,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'schwimmen',
         name: 'Schwimmen',
-        value: 8,
+        value: 12,
         attributes: ['GE', 'KO', 'ST'],
         divide: 3,
         increased: false,
@@ -102,7 +102,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'verborgenesErkennen',
         name: 'Verborgenes Erkennen',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -112,7 +112,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'zechen',
         name: 'Zechen',
-        value: 8,
+        value: 12,
         attributes: ['IN', 'ST', 'KO'],
         divide: 3,
         increased: false,
@@ -122,7 +122,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'faehrtensuche',
         name: 'Fährtensuche',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'KO'],
         divide: 3,
         increased: false,
@@ -132,7 +132,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'fischenAngeln',
         name: 'Fischen & Angeln',
-        value: 8,
+        value: 12,
         attributes: ['IN', 'FF', 'ST'],
         divide: 3,
         increased: false,
@@ -142,7 +142,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'himmelskunde',
         name: 'Himmelskunde',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'IN'],
         divide: 3,
         increased: false,
@@ -152,7 +152,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'orientierung',
         name: 'Orientierung',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'IN'],
         divide: 3,
         increased: false,
@@ -162,7 +162,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'pflanzenkunde',
         name: 'Pflanzenkunde',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
@@ -172,7 +172,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'tierkunde',
         name: 'Tierkunde',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -182,7 +182,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'alchemie',
         name: 'Alchemie',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'KL', 'FF'],
         divide: 3,
         increased: false,
@@ -192,7 +192,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'bootSeefahrt',
         name: 'Boot- & Seefahrt',
-        value: 8,
+        value: 12,
         attributes: ['IN', 'GE', 'KO'],
         divide: 3,
         increased: false,
@@ -202,7 +202,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'fahrzeugLenken',
         name: 'Fahrzeug lenken',
-        value: 8,
+        value: 12,
         attributes: ['IN', 'CH', 'FF'],
         divide: 3,
         increased: false,
@@ -212,7 +212,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'holzbearbeitung',
         name: 'Holzbearbeitung',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'FF', 'ST'],
         divide: 3,
         increased: false,
@@ -222,7 +222,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'kochenBrauen',
         name: 'Kochen & Brauen',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'FF', 'FF'],
         divide: 3,
         increased: false,
@@ -232,7 +232,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'lehmSteinbearbeitung',
         name: 'Lehm- & Steinbearbeitung',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'FF', 'FF'],
         divide: 3,
         increased: false,
@@ -242,7 +242,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'malenZeichnen',
         name: 'Malen & Zeichnen',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
@@ -252,7 +252,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'musizieren',
         name: 'Musizieren',
-        value: 8,
+        value: 12,
         attributes: ['IN', 'CH', 'FF'],
         divide: 3,
         increased: false,
@@ -262,7 +262,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'schmiedekunst',
         name: 'Schmiedekunst',
-        value: 8,
+        value: 12,
         attributes: ['FF', 'KO', 'ST'],
         divide: 3,
         increased: false,
@@ -272,7 +272,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'schneiderLederarbeiten',
         name: 'Schneider- & Lederarbeiten',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'FF', 'KO'],
         divide: 3,
         increased: false,
@@ -282,7 +282,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'einschuechtern',
         name: 'Einschüchtern',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'CH', 'ST'],
         divide: 3,
         increased: false,
@@ -292,7 +292,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'handel',
         name: 'Handel',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
@@ -302,7 +302,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'schauspielerei',
         name: 'Schauspielerei',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'KL', 'CH'],
         divide: 3,
         increased: false,
@@ -312,7 +312,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'standeswissen',
         name: 'Standeswissen',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
@@ -322,7 +322,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'tanzen',
         name: 'Tanzen',
-        value: 8,
+        value: 12,
         attributes: ['CH', 'GE', 'GE'],
         divide: 3,
         increased: false,
@@ -332,7 +332,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'ueberreden',
         name: 'Überreden',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'IN', 'CH'],
         divide: 3,
         increased: false,
@@ -342,7 +342,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'ueberzeugen',
         name: 'Überzeugen',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
@@ -352,7 +352,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'architekt',
         name: 'Architekt',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'KL', 'FF'],
         divide: 3,
         increased: false,
@@ -362,7 +362,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'geographie',
         name: 'Geographie',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -372,7 +372,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'geschichtswissen',
         name: 'Geschichtswissen',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -382,7 +382,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'goetterKulte',
         name: 'Götter & Kulte',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -392,7 +392,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'heilkundeGeist',
         name: '(Heil-)Kunde des Geistes',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'CH'],
         divide: 3,
         increased: false,
@@ -402,7 +402,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'heilkundeKoerper',
         name: '(Heil-)Kunde des Körpers',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
@@ -412,7 +412,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'kriegskunst',
         name: 'Kriegskunst',
-        value: 8,
+        value: 12,
         attributes: ['MU', 'KL', 'CH'],
         divide: 3,
         increased: false,
@@ -422,7 +422,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'magiekunde',
         name: 'Magiekunde',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -432,7 +432,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'rechnenPhysik',
         name: 'Rechnen & Physik',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'IN', 'FF'],
         divide: 3,
         increased: false,
@@ -442,7 +442,7 @@ export const characterStore = defineStore('characterStore', {
       {
         key: 'rechtsStaatskunst',
         name: 'Rechts- & Staatskunst',
-        value: 8,
+        value: 12,
         attributes: ['KL', 'KL', 'IN'],
         divide: 3,
         increased: false,
@@ -482,18 +482,6 @@ export const characterStore = defineStore('characterStore', {
       })
       this.calcSkills()
     },
-    setAttribute(key, newValue) {
-      if (key === null) window.alert('attribute is null!')
-
-      if (newValue > 16 || newValue < 8) newValue = newValue > 16 ? 16 : 8
-
-      this.attributes.forEach((attribute) => {
-        if (attribute.key === key) {
-          attribute.value = newValue
-        }
-      })
-      this.calcUpdatedSkills(key)
-    },
     increaseAttribute(key, newValue) {
       if (key === null) window.alert('attribute is null!')
 
@@ -521,8 +509,8 @@ export const characterStore = defineStore('characterStore', {
       this.attributes.forEach((attribute) => {
         if (attribute.key === key) {
           attribute.value = attribute.value + adjustment
-          if (attribute.value > 16 || attribute.value < 8)
-            attribute.value = attribute.value > 16 ? 16 : 8
+          if (attribute.value > 16 || attribute.value < 7)
+            attribute.value = attribute.value > 16 ? 16 : 7
         }
       })
       this.updateStores(key)

@@ -9,7 +9,7 @@ const store = characterStore()
     <table>
       <tr>
         <th>Talent</th>
-        <th>Expertise</th>
+        <th>Begabung</th>
         <th>Gruppe</th>
       </tr>
       <tr

@@ -18,7 +18,7 @@ import AllSkillsView from './components/AllSkillsView.vue'
   </main>
   <footer>
     <label>Beta Version</label><br />
-    <label>v0.1</label><br />
+    <label>v0.2</label><br />
     <label>Feedback-Gebete an Makofu</label>
   </footer>
 </template>

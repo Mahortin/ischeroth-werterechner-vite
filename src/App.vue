@@ -6,7 +6,7 @@ import AllSkillsView from './components/AllSkillsView.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/phoenix.svg" width="125" height="125" />
+    <img alt="Ischeroth logo" class="logo" src="./assets/phoenix.svg" width="125" height="125" />
     <div class="wrapper">
       <HelloWorld msg="Ischeroth Werterechner" />
     </div>
@@ -17,6 +17,13 @@ import AllSkillsView from './components/AllSkillsView.vue'
     <AllSkillsView />
   </main>
   <footer>
+    <img
+      alt="Ischeroth ruleset logo"
+      class="logo-footer"
+      src="./assets/rule-icon-colored.svg"
+      width="125"
+      height="125"
+    />
     <label>Beta Version</label><br />
     <label>Web Version v0.3</label><br />
     <label>Ruleset v2.15.2</label><br />
@@ -33,6 +40,12 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+.logo-footer {
+  display: block;
+  left: 50%;
+  margin: 1rem auto 1rem;
 }
 
 @media (min-width: 1024px) {

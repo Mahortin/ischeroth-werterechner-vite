@@ -9,8 +9,7 @@ const store = combatSkillStore()
     <table>
       <tr>
         <th>Talent</th>
-        <th>AT</th>
-        <th>PA</th>
+        <th>Begabung</th>
         <th>Gruppe</th>
       </tr>
       <tr
@@ -20,8 +19,7 @@ const store = combatSkillStore()
         :value="skill.value"
       >
         <td>{{ skill.name }}</td>
-        <td>{{ skill.attack }}</td>
-        <td>{{ skill.defend }}</td>
+        <td>{{ skill.base }}</td>
         <td>{{ skill.group }}</td>
       </tr>
     </table>

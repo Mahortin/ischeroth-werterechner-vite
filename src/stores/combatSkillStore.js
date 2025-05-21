@@ -13,7 +13,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 12,
         isMelee: true,
-        attributes: ['MU', 'IN', 'FF', 'GE'],
+        attributes: ['Mu', 'Au', 'Fi', 'Ge'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -25,7 +25,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 12,
         isMelee: true,
-        attributes: ['MU', 'IN', 'ST', 'KO'],
+        attributes: ['Mu', 'Au', 'St', 'Ko'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -37,7 +37,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 12,
         isMelee: true,
-        attributes: ['MU', 'IN', 'GE', 'ST'],
+        attributes: ['Mu', 'Au', 'Ge', 'St'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -49,7 +49,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 12,
         isMelee: true,
-        attributes: ['MU', 'IN', 'GE', 'ST'],
+        attributes: ['Mu', 'Au', 'Ge', 'St'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -61,7 +61,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 12,
         isMelee: true,
-        attributes: ['MU', 'IN', 'GE', 'ST'],
+        attributes: ['Mu', 'Au', 'Ge', 'St'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -73,7 +73,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 0,
         defend: 12,
         isMelee: false,
-        attributes: ['FF', 'ST', 'KO'],
+        attributes: ['Fi', 'St', 'Ko'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -85,7 +85,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 6,
         isMelee: false,
-        attributes: ['IN', 'FF', 'ST'],
+        attributes: ['Au', 'Fi', 'St'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -97,7 +97,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 6,
         isMelee: false,
-        attributes: ['FF', 'GE', 'ST'],
+        attributes: ['Fi', 'Ge', 'St'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -109,7 +109,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 6,
         isMelee: false,
-        attributes: ['KL', 'IN', 'FF'],
+        attributes: ['Ve', 'Au', 'Fi'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -121,7 +121,7 @@ export const combatSkillStore = defineStore('combatSkillStore', {
         attack: 12,
         defend: 6,
         isMelee: false,
-        attributes: ['FF', 'GE', 'ST'],
+        attributes: ['Fi', 'Ge', 'St'],
         divide: 2,
         increased: false,
         group: 'Kampf',
@@ -168,8 +168,8 @@ export const combatSkillStore = defineStore('combatSkillStore', {
     calcMeleeSkill(skill) {
       // window.alert('reached')
       // window.confirm('reached calcSkill with: ' + skill.name)
-      var muAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'MU')
-      var inAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'IN')
+      var muAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'Mu')
+      var inAttribute = this.characterStore.attributes.find((attribute) => attribute.key === 'Au')
       var firstAttribute = this.characterStore.attributes.find(
         (attribute) => attribute.key === skill.attributes[2],
       )

@@ -10,8 +10,8 @@ export const characterStore = defineStore('characterStore', {
     filter: skillFilterStore(),
     attributes: [
       { key: 'Mu', name: 'Mut', value: 12, increased: 0 },
-      { key: 'Ve', name: 'Verstand', value: 12, increased: 0 },
       { key: 'Au', name: 'Aufmerksamkeit', value: 12, increased: 0 },
+      { key: 'Ve', name: 'Verstand', value: 12, increased: 0 },
       { key: 'Ch', name: 'Charisma', value: 12, increased: 0 },
       { key: 'Fi', name: 'Fingerfertigkeit', value: 12, increased: 0 },
       { key: 'Ge', name: 'Gewandheit', value: 12, increased: 0 },

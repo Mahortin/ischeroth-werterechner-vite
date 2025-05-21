@@ -25,14 +25,14 @@ const { getValueByKey } = storeToRefs(store)
       <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 1)">
         +1
       </button>
-      <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 5)">
-        +5
+      <button class="adjust-attribute add" @click="store.addToAttribute(attributeKey, 4)">
+        +4
       </button>
       <button class="adjust-attribute reduce" @click="store.addToAttribute(attributeKey, -1)">
         -1
       </button>
-      <button class="adjust-attribute reduce" @click="store.addToAttribute(attributeKey, -5)">
-        -5
+      <button class="adjust-attribute reduce" @click="store.addToAttribute(attributeKey, -4)">
+        -4
       </button>
     </div>
     <div>
